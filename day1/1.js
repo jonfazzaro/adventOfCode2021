@@ -1,5 +1,6 @@
-module.exports = function increaseCount(sequence){
+module.exports = function increaseCount(sequence, window){
+    window = window || 1;
     return sequence
-        .filter((n, i) => sequence[i-1] < n)
+        .filter((n, i) => window <= i && sequence[i-window] < n)
         .length;
 }
