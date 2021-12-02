@@ -80,10 +80,9 @@ describe("The navigate function", () => {
       up 3
       down 8
       forward 2`;
-        expect(navigateWithAim(navigate(), instructions)).toEqual({
-          position: 15,
-          depth: 60,
-        });
+        const result = navigateWithAim( navigate(), instructions  )
+        expect(result.position).toEqual(15);
+        expect(result.depth).toEqual(60);
       });
     });
   });
