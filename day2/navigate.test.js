@@ -9,7 +9,7 @@ describe("The navigate function", () => {
       });
     });
 
-    xit("moves forward", () => {
+    it("moves forward", () => {
       expect(navigate(zero, "forward 1"))
         .toEqual({position: 1, depth:0});
     });

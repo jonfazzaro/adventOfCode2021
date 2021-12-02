@@ -11,8 +11,5 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^27.4.3"
-  },
-  "devDependencies": {
-    "tcr-jest-watch-plugin": "^1.0.0"
   }
 }
