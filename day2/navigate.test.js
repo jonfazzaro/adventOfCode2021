@@ -24,5 +24,10 @@ describe("The navigate function", () => {
         .toEqual({position: 0, depth:3});
     });
 
+    it("moves forward more", () => {
+      expect(navigate(zero, "forward 5"))
+        .toEqual({position: 5, depth:0});
+    });
+
   });
 });

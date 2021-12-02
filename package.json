@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest",
     "tdd": "npx jest --watchAll",
-    "tcr": "nodemon --watch js -x \"npx jest && git add -A && git commit -m 'wip'\""
+    "tcr": "nodemon -e js -x \"npx jest && git add -A && git commit -m 'wip'\""
   },
   "author": "",
   "license": "ISC",

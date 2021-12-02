@@ -7,7 +7,7 @@ module.exports = function navigate(
   const newLocation = Object.assign({}, location);
 
   if (direction(instructions) == "forward") 
-    newLocation.position = 1;
+    newLocation.position = distance(instructions);
   else newLocation.depth = distance(instructions);
 
   return newLocation;
