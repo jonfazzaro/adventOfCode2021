@@ -13,7 +13,6 @@ module.exports = function navigate(
   return destination;
 
   function apply(instruction) {
-    console.log(instruction)
     destination[dimension(instruction)] += distance(instruction);
     normalize(destination);
   }
