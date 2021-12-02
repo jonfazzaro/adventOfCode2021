@@ -59,5 +59,13 @@ describe("The navigate function", () => {
         )
       ).toEqual({ position: 9, depth: 4 });
     });
+
+    it('increases the aim as we go deeper', () => {
+      expect(navigate(navigate(), `
+      forward 3
+      down 12
+      forward 5
+      `)).toEqual({ position: 8, depth: 72 })
+    });
   });
 });
