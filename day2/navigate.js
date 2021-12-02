@@ -2,6 +2,7 @@ module.exports = function navigate(
   location = { position: 0, depth: 0 },
   instructions
 ) {
+  
   if (!instructions) return location;
 
   const newLocation = Object.assign({}, location);
