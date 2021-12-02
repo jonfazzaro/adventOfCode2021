@@ -1,10 +1,6 @@
-module.exports = { navigate, navigateWithAim }
+module.exports = { navigate, navigateWithAim };
 
-function navigate(
-  origin = { position: 0, depth: 0 },
-  instructions, 
-  strategy
-) {
+function navigate(origin = { position: 0, depth: 0 }, instructions, strategy) {
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
@@ -12,22 +8,18 @@ function navigate(
     .split("\n")
     .map((i) => i.trim())
     .filter(valid)
-    .forEach(apply(destination));
+    .forEach(standard(destination));
   return destination;
-};
+}
 
-  function apply(destination) {
-    return (instruction) => {
-      destination[dimension(instruction)] += distance(instruction);
-      normalize(destination);
-    }
-  }
+function standard(destination) {
+  return (instruction) => {
+    destination[dimension(instruction)] += distance(instruction);
+    normalize(destination);
+  };
+}
 
-
-function navigateWithAim( 
-  origin = { position: 0, depth: 0 },
-  instructions
-) {
+function navigateWithAim(origin = { position: 0, depth: 0 }, instructions) {
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
@@ -43,12 +35,10 @@ function navigateWithAim(
       destination.position += distance(instruction);
       destination.aim = destination.aim || 0;
       destination.depth += destination.aim * distance(instruction);
+    } else destination.aim += distance(instruction);
 
-    }
-    else destination.aim += distance(instruction);
-    
     normalize(destination);
-  } 
+  }
 }
 
 function normalize(location) {
