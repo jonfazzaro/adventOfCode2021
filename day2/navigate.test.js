@@ -64,8 +64,9 @@ describe("The navigate function", () => {
       expect(navigate(navigate(), `
       forward 3
       down 12
+      up 6
       forward 5
-      `)).toEqual({ position: 8, depth: 72 })
+      `)).toEqual({ position: 8, depth: 36 })
     });
   });
 });
