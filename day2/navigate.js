@@ -30,5 +30,7 @@ function direction(instruction) {
 }
 
 function distance(instruction) {
-  return Math.max(0, direction(instruction) * parseInt(instruction.split(" ")[1]));
+  return Math.max(0, 
+    direction(instruction) * 
+    parseInt(instruction.split(" ")[1]));
 }
