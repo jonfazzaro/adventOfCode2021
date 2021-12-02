@@ -57,14 +57,6 @@ describe("The navigate function", () => {
     });
   });
 
-  console.log(`
-  forward 9
-  down 13
-
-  up 9
-
-  `.split('\n'));
-
   // console.log(navigate(navigate(),
   // `forward 7
   // forward 9
