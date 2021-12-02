@@ -19,7 +19,7 @@ describe("The navigate function", () => {
         .toEqual({position: 0, depth:1});
     });
 
-    xit("moves down more", () => {
+    it("moves down more", () => {
       expect(navigate(zero, "down 3"))
         .toEqual({position: 0, depth:3});
     });
