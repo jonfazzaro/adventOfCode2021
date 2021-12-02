@@ -7,7 +7,6 @@ function navigate(
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
-  let aim = 0;
   instructions
     .split("\n")
     .map((i) => i.trim())
@@ -29,7 +28,6 @@ function navigateWithAim(
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
-  let aim = 0;
   instructions
     .split("\n")
     .map((i) => i.trim())
@@ -40,9 +38,11 @@ function navigateWithAim(
   function apply(instruction) {
     if (verb(instruction) == "forward") {
       destination.position += distance(instruction);
-      destination.depth += aim * distance(instruction);
+      destination.aim = destination.aim || 0;
+      destination.depth += destination.aim * distance(instruction);
+
     }
-    else aim += distance(instruction);
+    else destination.aim += distance(instruction);
     
     normalize(destination);
   } 

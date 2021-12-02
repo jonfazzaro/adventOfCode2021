@@ -62,17 +62,15 @@ describe("The navigate function", () => {
 
     describe("when aiming", () => {
       it("adjusts the aim as we go down or up", () => {
-        expect(
-          navigateWithAim(
-            navigate(),
-            `
+        const instructions = `
         forward 3
         down 12
         up 6
         forward 5
-        `
-          )
-        ).toEqual({ position: 8, depth: 30 });
+        `;
+        const result = navigateWithAim( navigate(), instructions  )
+        expect(result.position).toEqual(8);
+        expect(result.depth).toEqual(30);
       });
 
       xit("checks out with the sample problem", () => {
