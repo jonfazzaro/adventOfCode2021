@@ -29,5 +29,10 @@ describe("The navigate function", () => {
         .toEqual({position: 5, depth:0});
     });
 
+    xit('moves both ways', () => {
+      expect(navigate(zero, "forward 6\ndown 2"))
+        .toEqual({position: 6, depth:2});
+    });
+
   });
 });
