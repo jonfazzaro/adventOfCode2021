@@ -4,7 +4,7 @@ module.exports = function navigate(
 ) {
   if (!instructions) return location;
 
-  const newLocation = Object.assign(location);
+  const newLocation = Object.assign({}, location);
 
   if (direction(instructions) == "forward") 
     newLocation.position = 1;
