@@ -6,9 +6,14 @@ module.exports = function navigate(
 
   const newLocation = Object.assign({}, location);
 
-    newLocation[dimension(instructions)] = distance(instructions);
-
+  apply(instructions);
+  
   return newLocation;
+  
+  function apply(instruction) {
+      newLocation[dimension(instruction)] = 
+        distance(instruction);
+  }
 
   function dimension(instruction) {
       const direction = instructions.split(' ')[0];
