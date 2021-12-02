@@ -1,4 +1,4 @@
-const navigate = require("./navigate");
+const { navigate, navigateWithAim } = require("./navigate");
 
 describe("The navigate function", () => {
   describe("given a zero location", () => {
@@ -60,13 +60,33 @@ describe("The navigate function", () => {
       ).toEqual({ position: 9, depth: 4 });
     });
 
-    it('increases the aim as we go deeper', () => {
-      expect(navigate(navigate(), `
-      forward 3
-      down 12
-      up 6
-      forward 5
-      `)).toEqual({ position: 8, depth: 36 })
+    xdescribe("when aiming", () => {
+      it("adjusts the aim as we go down or up", () => {
+        expect(
+          navigateWithAim(
+            navigate(),
+            `
+        forward 3
+        down 12
+        up 6
+        forward 5
+        `
+          )
+        ).toEqual({ position: 8, depth: 30 });
+      });
+
+      xit("checks out with the sample problem", () => {
+        const instructions = `forward 5
+      down 5
+      forward 8
+      up 3
+      down 8
+      forward 2`;
+        expect(navigateWithAim(navigate(), instructions)).toEqual({
+          position: 15,
+          depth: 60,
+        });
+      });
     });
   });
 });

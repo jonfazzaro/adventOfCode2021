@@ -1,4 +1,6 @@
-module.exports = function navigate(
+module.exports = { navigate, navigateWithAim }
+
+function navigate(
   origin = { position: 0, depth: 0 },
   instructions
 ) {
@@ -15,17 +17,36 @@ module.exports = function navigate(
 
   function apply(instruction) {
     destination[dimension(instruction)] += distance(instruction);
-    factorInAim(instruction, destination);
     normalize(destination);
   }
 
-  function factorInAim(instruction, destination) {
-    if (verb(instruction) == "forward") 
-    destination.depth += distance(instruction) * aim;
-  else 
-    aim += distance(instruction); 
-  }
 };
+
+function navigateWithAim( 
+  origin = { position: 0, depth: 0 },
+  instructions
+) {
+  if (!instructions) return origin;
+
+  const destination = Object.assign({}, origin);
+  let aim = 0;
+  instructions
+    .split("\n")
+    .map((i) => i.trim())
+    .filter(valid)
+    .forEach(apply);
+  return destination;
+
+  function apply(instruction) {
+    if (verb(instruction) == "forward") {
+      destination.position += distance(instruction);
+      destination.depth += aim * distance(instruction);
+    }
+    else aim += distance(instruction);
+    
+    normalize(destination);
+  } 
+}
 
 function normalize(location) {
   location.position = Math.max(0, location.position);
