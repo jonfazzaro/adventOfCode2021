@@ -6,10 +6,14 @@ module.exports = function navigate(
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
-  instructions.split('\n').forEach(apply);
+  instructions.split('\n')
+  .map(i => i.trim())
+    .filter(i => !!i.length && i.split(' ').length == 2)
+    .forEach(apply);
   return destination;
 
   function apply(instruction) {
+    console.log(instruction)
     destination[dimension(instruction)] += distance(instruction);
     normalize(destination);
   }

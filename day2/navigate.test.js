@@ -44,6 +44,26 @@ describe("The navigate function", () => {
     });
   });
 
+  describe('given empty lines', () => {
+    it.only('does not error', () => {
+      expect(navigate(navigate(), `
+      forward 9
+      down 13
+
+      up 9
+
+      `)).toEqual({position: 9, depth: 4})
+      
+    });
+  });
+
+  console.log(`
+  forward 9
+  down 13
+
+  up 9
+
+  `.split('\n'));
 
   // console.log(navigate(navigate(),
   // `forward 7
