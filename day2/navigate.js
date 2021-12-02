@@ -1,6 +1,6 @@
 module.exports = { navigate, navigateWithAim };
 
-function navigate(origin = { position: 0, depth: 0 }, instructions, strategy) {
+function navigate(origin = { position: 0, depth: 0 }, instructions, strategy = standard) {
   if (!instructions) return origin;
 
   const destination = Object.assign({}, origin);
