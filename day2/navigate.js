@@ -7,7 +7,7 @@ module.exports = function navigate(
 
   const destination = Object.assign({}, origin);
   instructions.split('\n')
-  .map(i => i.trim())
+    .map(i => i.trim())
     .filter(i => i.split(' ').length == 2)
     .forEach(apply);
   return destination;
