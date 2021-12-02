@@ -20,7 +20,7 @@ function dimension(instruction) {
 }
 
 function direction(instruction) {
-    return verb(instruction) == "up" ? -1 : 1;
+  return verb(instruction) == "up" ? -1 : 1;
 }
 
 function verb(instruction) {
@@ -28,7 +28,8 @@ function verb(instruction) {
 }
 
 function distance(instruction) {
-  return Math.max(0, 
-    direction(instruction) * 
-    parseInt(instruction.split(" ")[1]));
+  return Math.max(
+    0,
+    direction(instruction) * parseInt(instruction.split(" ")[1])
+  );
 }
