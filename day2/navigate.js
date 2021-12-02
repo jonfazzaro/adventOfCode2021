@@ -16,14 +16,12 @@ module.exports = function navigate(
 };
 
 function dimension(instruction) {
-  const direction = instruction.split(" ")[0];
-  if (direction == "forward") return "position";
+  if (verb(instruction) == "forward") return "position";
   else return "depth";
 }
 
 function direction(instruction) {
-    const verb = instruction.split(" ")[0];
-    if (verb == "up")
+    if (verb(instruction) == "up")
       return -1;
 
     return 1;
