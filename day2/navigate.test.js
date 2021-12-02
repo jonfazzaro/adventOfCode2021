@@ -36,7 +36,7 @@ describe("The navigate function", () => {
   });
 
   describe("given a non-zero location", () => {
-    it.only("moves up", () => {
+    it("moves up", () => {
       expect(navigate({ position: 5, depth: 9 }, "up 4")).toEqual({
         position: 5,
         depth: 5,

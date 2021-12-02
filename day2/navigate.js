@@ -10,8 +10,9 @@ module.exports = function navigate(
   return destination;
 
   function apply(instruction) {
-    console.log(`${dimension(instruction)} += ${distance(instruction)}`)
-    destination[dimension(instruction)] += distance(instruction);
+    const dim = dimension(instruction);
+    destination[dim] += distance(instruction);
+    destination[dim] = Math.max(0, destination[dim]);
   }
 };
 
