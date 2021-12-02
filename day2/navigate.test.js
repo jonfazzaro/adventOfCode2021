@@ -68,19 +68,19 @@ describe("The navigate function", () => {
         up 6
         forward 5
         `;
-        const result = navigateWithAim( navigate(), instructions  )
+        const result = navigateWithAim(navigate(), instructions);
         expect(result.position).toEqual(8);
         expect(result.depth).toEqual(30);
       });
 
-      xit("checks out with the sample problem", () => {
+      it("checks out with the sample problem", () => {
         const instructions = `forward 5
       down 5
       forward 8
       up 3
       down 8
       forward 2`;
-        const result = navigateWithAim( navigate(), instructions  )
+        const result = navigateWithAim(navigate(), instructions);
         expect(result.position).toEqual(15);
         expect(result.depth).toEqual(60);
       });
