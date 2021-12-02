@@ -10,6 +10,7 @@ module.exports = function navigate(
   return destination;
 
   function apply(instruction) {
+    console.log(`${dimension(instruction)} += ${distance(instruction)}`)
     destination[dimension(instruction)] += distance(instruction);
   }
 };
@@ -27,8 +28,6 @@ function verb(instruction) {
 }
 
 function distance(instruction) {
-  return Math.max(
-    0,
-    direction(instruction) * parseInt(instruction.split(" ")[1])
-  );
+  return direction(instruction) 
+       * parseInt(instruction.split(" ")[1]);
 }
