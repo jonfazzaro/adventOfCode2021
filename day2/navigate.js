@@ -6,14 +6,16 @@ module.exports = function navigate(
 
   const newLocation = Object.assign({}, location);
 
-  if (direction(instructions) == "forward") 
-    newLocation.position = distance(instructions);
-  else newLocation.depth = distance(instructions);
+    newLocation[dimension(instructions)] = distance(instructions);
 
   return newLocation;
 
-  function direction(instruction) {
-    return instructions.split(' ')[0];
+  function dimension(instruction) {
+      const direction = instructions.split(' ')[0];
+      if (direction == "forward")
+        return "position";
+      else 
+        return "depth";
   }
 
   function distance(instruction) {
