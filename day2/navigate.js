@@ -11,7 +11,7 @@ module.exports = function navigate(
   return newLocation;
 
   function apply(instruction) {
-    newLocation[dimension(instruction)] = distance(instruction);
+    newLocation[dimension(instruction)] += distance(instruction);
   }
 };
 
