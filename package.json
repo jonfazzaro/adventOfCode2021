@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "npx jest",
-    "tdd": "npx jest --watchAll"
+    "tdd": "npx jest --watchAll",
+    "tcr": "nodemon -e js -x \"npx jest && git add -A && git commit -m 'wip'\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^27.4.3"
+    "jest": "^27.4.3",
+    "nodemon": "^2.0.15"
   }
 }
