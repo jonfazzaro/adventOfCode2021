@@ -29,6 +29,10 @@ function direction(instruction) {
     return 1;
 }
 
+function verb(instruction) {
+  return instruction.split(" ")[0];
+}
+
 function distance(instruction) {
   return Math.max(0, 
     direction(instruction) * 
