@@ -40,3 +40,7 @@ function distance(instruction) {
   return direction(instruction) 
        * parseInt(instruction.split(" ")[1]);
 }
+
+function valid(i) {
+  return i.split(' ').length == 2;
+}
