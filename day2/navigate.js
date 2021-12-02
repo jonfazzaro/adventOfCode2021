@@ -11,7 +11,7 @@ module.exports = function navigate(
   return newLocation;
 
   function apply(instruction) {
-    newLocation[dimension(instruction)] = Math.max(0, direction(instruction) * distance(instruction));
+    newLocation[dimension(instruction)] = distance(instruction);
   }
 };
 
@@ -30,5 +30,5 @@ function direction(instruction) {
 }
 
 function distance(instruction) {
-  return parseInt(instruction.split(" ")[1]);
+  return Math.max(0, direction(instruction) * parseInt(instruction.split(" ")[1]));
 }
