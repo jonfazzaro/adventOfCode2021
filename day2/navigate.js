@@ -20,10 +20,7 @@ function dimension(instruction) {
 }
 
 function direction(instruction) {
-    if (verb(instruction) == "up")
-      return -1;
-
-    return 1;
+    return verb(instruction) == "up" ? -1 : 1;
 }
 
 function verb(instruction) {
