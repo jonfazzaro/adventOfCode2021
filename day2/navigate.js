@@ -10,8 +10,7 @@ module.exports = function navigate(
   return destination;
 
   function apply(instruction) {
-    const dim = dimension(instruction);
-    destination[dim] += distance(instruction);
+    destination[dimension(instruction)] += distance(instruction);
     normalize(destination);
   }
 };
