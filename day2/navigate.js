@@ -25,18 +25,18 @@ function standard(destination) {
 
 function navigateWithAim(origin, instructions) {
   return navigate(origin, instructions, withAim);
+}
 
-  function withAim(destination) {
-    return (instruction) => {
-      if (verb(instruction) == "forward") {
-        destination.position += distance(instruction);
-        destination.aim = destination.aim || 0;
-        destination.depth += destination.aim * distance(instruction);
-      } else destination.aim += distance(instruction);
+function withAim(destination) {
+  return (instruction) => {
+    if (verb(instruction) == "forward") {
+      destination.position += distance(instruction);
+      destination.aim = destination.aim || 0;
+      destination.depth += destination.aim * distance(instruction);
+    } else destination.aim += distance(instruction);
 
-      normalize(destination);
-    };
-  }
+    normalize(destination);
+  };
 }
 
 function normalize(location) {
