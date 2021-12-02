@@ -1,3 +1,3 @@
-module.exports = function navigate() {
-    return {position: 0, depth: 0};
+module.exports = function navigate(position = {position: 0, depth: 0}) {
+    return position;
 }
