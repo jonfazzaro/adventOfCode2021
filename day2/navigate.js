@@ -6,7 +6,7 @@ module.exports = function navigate(
 
   const newLocation = Object.assign({}, location);
 
-  apply(instructions);
+  instructions.split('\n').forEach(apply);
   
   return newLocation;
   
@@ -16,7 +16,7 @@ module.exports = function navigate(
   }
 
   function dimension(instruction) {
-      const direction = instructions.split(' ')[0];
+      const direction = instruction.split(' ')[0];
       if (direction == "forward")
         return "position";
       else 
