@@ -6,7 +6,6 @@ module.exports = function navigate(
   if (!instructions) return location;
 
   const newLocation = Object.assign({}, location);
-
   instructions.split('\n').forEach(apply);
   return newLocation;
 
