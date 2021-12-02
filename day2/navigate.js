@@ -2,13 +2,12 @@ module.exports = function navigate(
   location = { position: 0, depth: 0 },
   instructions
 ) {
-  
+
   if (!instructions) return location;
 
   const newLocation = Object.assign({}, location);
 
-  instructions.split("\n").forEach(apply);
-
+  instructions.split('\n').forEach(apply);
   return newLocation;
 
   function apply(instruction) {
