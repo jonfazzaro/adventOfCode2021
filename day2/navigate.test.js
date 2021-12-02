@@ -33,4 +33,11 @@ describe("The navigate function", () => {
     });
 
   });
+
+  xdescribe('given a non-zero location', () => {
+      it('moves from the given location', () => {
+          
+      });
+      
+  });
 });
