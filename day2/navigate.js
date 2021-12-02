@@ -2,7 +2,8 @@ module.exports = { navigate, navigateWithAim }
 
 function navigate(
   origin = { position: 0, depth: 0 },
-  instructions
+  instructions, 
+  strategy
 ) {
   if (!instructions) return origin;
 
@@ -11,12 +12,14 @@ function navigate(
     .split("\n")
     .map((i) => i.trim())
     .filter(valid)
-    .forEach(apply);
+    .forEach(apply(destination));
   return destination;
 
-  function apply(instruction) {
-    destination[dimension(instruction)] += distance(instruction);
-    normalize(destination);
+  function apply(destination) {
+    return (instruction) => {
+      destination[dimension(instruction)] += distance(instruction);
+      normalize(destination);
+    }
   }
 
 };
