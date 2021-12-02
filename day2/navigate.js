@@ -14,6 +14,7 @@ function navigate(
     .filter(valid)
     .forEach(apply(destination));
   return destination;
+};
 
   function apply(destination) {
     return (instruction) => {
@@ -22,7 +23,6 @@ function navigate(
     }
   }
 
-};
 
 function navigateWithAim( 
   origin = { position: 0, depth: 0 },
