@@ -15,11 +15,15 @@ module.exports = function navigate(
 
   function apply(instruction) {
     destination[dimension(instruction)] += distance(instruction);
-    if (verb(instruction) == "forward") 
-      destination.depth += distance(instruction) * aim;
-    else 
-      aim += distance(instruction);
+    factorInAim(instruction, destination);
     normalize(destination);
+  }
+
+  function factorInAim(instruction, destination) {
+    if (verb(instruction) == "forward") 
+    destination.depth += distance(instruction) * aim;
+  else 
+    aim += distance(instruction); 
   }
 };
 
