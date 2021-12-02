@@ -60,7 +60,7 @@ describe("The navigate function", () => {
       ).toEqual({ position: 9, depth: 4 });
     });
 
-    xdescribe("when aiming", () => {
+    describe("when aiming", () => {
       it("adjusts the aim as we go down or up", () => {
         expect(
           navigateWithAim(
