@@ -16,8 +16,7 @@ module.exports = function navigate(
 };
 
 function dimension(instruction) {
-  if (verb(instruction) == "forward") return "position";
-  else return "depth";
+  return verb(instruction) === "forward" ? "position" : "depth";
 }
 
 function direction(instruction) {
