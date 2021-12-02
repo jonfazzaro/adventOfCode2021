@@ -16,15 +16,15 @@ function navigate(
   return destination;
 }
 
+function navigateWithAim(origin, instructions) {
+  return navigate(origin, instructions, withAim);
+}
+
 function standard(destination) {
   return (instruction) => {
     destination[dimension(instruction)] += distance(instruction);
     normalize(destination);
   };
-}
-
-function navigateWithAim(origin, instructions) {
-  return navigate(origin, instructions, withAim);
 }
 
 function withAim(destination) {
