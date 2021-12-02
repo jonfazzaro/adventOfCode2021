@@ -1,16 +1,16 @@
 module.exports = function navigate(
-  location = { position: 0, depth: 0 },
+  origin = { position: 0, depth: 0 },
   instructions
 ) {
 
-  if (!instructions) return location;
+  if (!instructions) return origin;
 
-  const newLocation = Object.assign({}, location);
+  const destination = Object.assign({}, origin);
   instructions.split('\n').forEach(apply);
-  return newLocation;
+  return destination;
 
   function apply(instruction) {
-    newLocation[dimension(instruction)] += distance(instruction);
+    destination[dimension(instruction)] += distance(instruction);
   }
 };
 
