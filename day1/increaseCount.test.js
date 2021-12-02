@@ -1,4 +1,4 @@
-const increaseCount = require("./1");
+const increaseCount = require("./increaseCount");
 
 describe("The increase counter", () => {
   expectCount(0, []);
