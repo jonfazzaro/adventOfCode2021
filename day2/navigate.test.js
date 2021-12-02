@@ -45,7 +45,7 @@ describe("The navigate function", () => {
   });
 
   describe('given empty lines', () => {
-    it.only('does not error', () => {
+    it('does not error', () => {
       expect(navigate(navigate(), `
       forward 9
       down 13
