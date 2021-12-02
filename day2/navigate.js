@@ -8,7 +8,7 @@ function navigate(origin = { position: 0, depth: 0 }, instructions, strategy = s
     .split("\n")
     .map((i) => i.trim())
     .filter(valid)
-    .forEach(standard(destination));
+    .forEach(strategy(destination));
   return destination;
 }
 
