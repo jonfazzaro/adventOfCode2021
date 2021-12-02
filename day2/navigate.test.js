@@ -46,8 +46,7 @@ describe("The navigate function", () => {
 
 
   console.log(navigate(navigate(),
-  `
-  forward 7
+  `forward 7
   forward 9
   forward 3
   down 5
@@ -1046,6 +1045,5 @@ describe("The navigate function", () => {
   down 3
   forward 6
   up 9
-  forward 3 
-  `))
+  forward 3`))
 });
