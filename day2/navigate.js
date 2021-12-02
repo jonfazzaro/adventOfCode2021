@@ -14,9 +14,8 @@ module.exports = function navigate(
   return destination;
 
   function apply(instruction) {
-    const movingForward = verb(instruction) == "forward";
     destination[dimension(instruction)] += distance(instruction);
-    if (movingForward) destination.depth += distance(instruction) * aim;
+    if (verb(instruction) == "forward") destination.depth += distance(instruction) * aim;
     else aim += distance(instruction);
     normalize(destination);
   }
