@@ -1,4 +1,3 @@
-
 module.exports = function power(data = '') {
   const bits = data.split('\n')
   bits.sort();
