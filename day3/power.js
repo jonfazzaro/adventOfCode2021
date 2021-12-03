@@ -10,7 +10,7 @@ function flip(bit) {
 }
 
 function gamma(data = `0`) {
-  return toDecimal(median(data.split(`\n`)));
+  return toDecimal(median(toArray(data)));
 };
 
 function toArray(data) {
