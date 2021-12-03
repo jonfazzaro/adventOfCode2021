@@ -2,15 +2,23 @@ module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
     const g = median(toArray(data));
-    console.log(g);
-    console.log(gamma(data));
-    console.log(invert(g));
     return toDecimal(invert(g));
 }
 
 function gamma(data = `0`) {
-  return toDecimal(median(toArray(data)));
+
+    const readings = toArray(data);
+    let result = '';
+    for(let i = 0; i < readings[0].length; i++){
+result += median(slice(readings, i));
+    }
+
+  return toDecimal(result);
 };
+
+function slice(values, index) {
+    return values.map(r => r.split('')[index]);
+}
 
 function invert(binary) {
     return binary.split('').map(flip).join('');
