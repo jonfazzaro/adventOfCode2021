@@ -1,4 +1,12 @@
-module.exports = { gamma, epsilon };
+module.exports = { gamma, epsilon, oxygen, co2 };
+
+function oxygen(data) {
+  return toDecimal(reduceBy(mostCommonValue, data));
+}
+
+function co2(data) {
+  return toDecimal(reduceBy(leastCommonValue, data));
+}
 
 function epsilon(data = `0`) {
   return toDecimal(invert(mode(toArray(data))));
@@ -8,16 +16,32 @@ function gamma(data = `0`) {
   return toDecimal(mode(toArray(data)));
 }
 
-function mode(readings) {
-    let result = "";
-    for (let i = 0; i < width(readings); i++) 
-      result += median(slice(readings, i));
+function reduceBy(fn, data) {
+  const readings = toArray(data);
+  const filtered = range(width(readings)).reduce((result, i) => {
+    if (result.length == 1) return result;
+    return result.filter((r) => r[i] == fn(result, i));
+  }, readings);
 
-    return result;
+  return filtered[0];
+}
+
+function mostCommonValue(readings, digit) {
+  return median(slice(readings, digit));
+}
+
+function leastCommonValue(readings, digit) {
+  return flip(mostCommonValue(readings, digit));
+}
+
+function mode(readings) {
+  return range(width(readings)).reduce((result, i) => {
+    return result + median(slice(readings, i));
+  }, "");
 }
 
 function width(readings) {
-    return readings[0].length;
+  return readings[0].trim().length;
 }
 
 function slice(values, index) {
@@ -26,10 +50,10 @@ function slice(values, index) {
 
 function invert(binary) {
   return binary.split("").map(flip).join("");
+}
 
-  function flip(bit) {
-    return bit.trim() === "0" ? "1" : "0";
-  }
+function flip(bit) {
+  return bit.trim() === "0" ? "1" : "0";
 }
 
 function toArray(data) {
@@ -49,4 +73,8 @@ function median(values) {
 
 function middle(value) {
   return value[Math.floor(value.length / 2)];
+}
+
+function range(size) {
+  return [...Array(size).keys()];
 }
