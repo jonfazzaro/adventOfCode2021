@@ -3,7 +3,7 @@ module.exports = function power(data = '') {
   bits.sort();
   const mode = bits[Math.floor(bits.length/2)];
 
-  return parseInt(mode.trim() || '0', 2);
+  return toDecimal(mode);
 };
 
 function toDecimal(value) {
