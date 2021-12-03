@@ -7,7 +7,7 @@ function oxygen(data) {
   const filteredReadings = range(width(readings)).reduce((rows, i) => {
     if (!rows) return readings;
     return rows.filter((r) => r[i] == median(slice(rows, i)));
-  });
+  }, readings);
 
   return toDecimal(filteredReadings[0]);
 }
