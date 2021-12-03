@@ -23,7 +23,7 @@ describe('The power consumption reader', () => {
        const readings = `110
        011
        001
-       011
+       010
        101`;
        
        expect(power(readings)).toEqual('011');
