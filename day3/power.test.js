@@ -70,7 +70,7 @@ describe("The power consumption reader", () => {
       
       it.only('given readings with multiple bits, returns the least common bit for each digit', () => {
           const readings = `01
-          01
+          01   
           01
           01
           01
