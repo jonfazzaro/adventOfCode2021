@@ -65,7 +65,7 @@ describe("The power consumption reader", () => {
           0
           1`;
 
-          expect(epsilon(readings)).toEqual(1)
+          expect(epsilon(readings)).toEqual(1);
       });
 
 
