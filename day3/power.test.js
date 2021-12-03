@@ -43,7 +43,6 @@ describe('The power consumption reader', () => {
         00010
         01010`
 
-
        expect(power(readings)).toEqual(22);
     });
 
