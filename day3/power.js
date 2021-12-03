@@ -4,7 +4,7 @@ function epsilon(data = `0`){
     return toDecimal(data);
 }
 
-function gamma(data = '0') {
+function gamma(data = `0`) {
   return toDecimal(mode(data.split(`\n`)));
 };
 
