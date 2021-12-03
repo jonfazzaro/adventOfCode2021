@@ -1097,7 +1097,7 @@ describe("The power consumption reader", () => {
     100010011110
     110011100110`;
     
-    console.log(readings);
+    console.log(gamma(readings) * epsilon(readings));
       
   });
 });
