@@ -6,7 +6,7 @@ describe("The power consumption reader", () => {
       expect(gamma()).toEqual(0);
     });
 
-    it("given 1, returns 1", () => {
+    it.only("given 1, returns 1", () => {
       expect(gamma(`1`)).toEqual(1);
     });
 
@@ -68,7 +68,7 @@ describe("The power consumption reader", () => {
           expect(epsilon(readings)).toEqual(1);
       });
       
-      it.only('given readings with multiple bits, returns the least common bit for each digit', () => {
+      it('given readings with multiple bits, returns the least common bit for each digit', () => {
           const readings = `01
           01   
           01
@@ -78,6 +78,23 @@ describe("The power consumption reader", () => {
 
           expect(epsilon(readings)).toEqual(2);
       });
+
+      it('passes the example case', () => {
+        const readings = `00100
+        11110
+        10110
+        10111
+        10101
+        01111
+        00111
+        11100
+        10000
+        11001
+        00010
+        01010`;
+        
+        expect(epsilon(readings)).toEqual(9);
+    });
 
 
       
