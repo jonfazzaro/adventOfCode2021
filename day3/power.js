@@ -12,7 +12,7 @@ function mode(readings) {
     let result = "";
     for (let i = 0; i < width(readings); i++) 
       result += median(slice(readings, i));
-      
+
     return result;
 }
 
