@@ -1,9 +1,5 @@
 module.exports = function power(data = '') {
-  const bits = data.split('\n')
-  bits.sort();
-  const mode = middle(bits);
-
-  return toDecimal(mode);
+  return toDecimal(mode(data.split(`\n`)));
 };
 
 function toDecimal(value) {
