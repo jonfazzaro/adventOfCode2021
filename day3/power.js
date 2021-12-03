@@ -13,3 +13,8 @@ function toDecimal(value) {
 function middle(value) {
     return value[Math.floor(value.length/2)];
 }
+
+function mode(values) {
+    bits.sort();
+    return middle(bits); 
+}
