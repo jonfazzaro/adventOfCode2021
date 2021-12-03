@@ -5,13 +5,13 @@ function epsilon(data = `0`){
     return toDecimal(g.split('').map(flip).join(''));
 }
 
-function flip(bit) {
-    return bit.trim() === '0' ? '1' : '0';
-}
-
 function gamma(data = `0`) {
   return toDecimal(median(toArray(data)));
 };
+
+function flip(bit) {
+    return bit.trim() === '0' ? '1' : '0';
+}
 
 function toArray(data) {
     return data.split('\n').map(s => s.trim());
