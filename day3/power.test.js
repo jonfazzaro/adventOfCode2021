@@ -56,6 +56,19 @@ describe("The power consumption reader", () => {
       it('given 1, returns 1', () => {
           expect(epsilon(`1`)).toEqual(1);
       });
+
+      it('given more data, returns the least common bit for each digit', () => {
+          const readings = `1
+          0
+          0
+          0
+          0
+          1`;
+
+          expect(epsilon(readings)).toEqual(1)
+      });
+
+
       
   });
 });
