@@ -2,15 +2,14 @@ const { filter } = require("lodash");
 
 module.exports = { gamma, epsilon, oxygen };
 
-function oxygen(data){
-    const readings = toArray(data);
-    const filteredReadings = range(width(readings)).reduce((rows, i) =>{
-        if (!rows)
-            return readings;
-        return rows.filter(r => r[i] == median(slice(rows, i)));
-    });
-    
-    return toDecimal(filteredReadings[0]);
+function oxygen(data) {
+  const readings = toArray(data);
+  const filteredReadings = range(width(readings)).reduce((rows, i) => {
+    if (!rows) return readings;
+    return rows.filter((r) => r[i] == median(slice(rows, i)));
+  });
+
+  return toDecimal(filteredReadings[0]);
 }
 
 function epsilon(data = `0`) {
@@ -22,15 +21,17 @@ function gamma(data = `0`) {
 }
 
 function mode(readings) {
-    let result = "";
-    for (let i = 0; i < width(readings); i++) 
-      result += median(slice(readings, i));
+  let result = "";
+  for (let i = 0; i < width(readings); i++)
+    result += median(slice(readings, i));
 
-    return result;
+  return range(width(readings)).reduce((result = "", i) => {
+    return result + median(slice(readings, i));
+  });
 }
 
 function width(readings) {
-    return readings[0].trim().length;
+  return readings[0].trim().length;
 }
 
 function slice(values, index) {
@@ -65,5 +66,5 @@ function middle(value) {
 }
 
 function range(size) {
-    return [...Array(size).keys()];
+  return [...Array(size).keys()];
 }
