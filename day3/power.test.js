@@ -52,6 +52,10 @@ describe("The power consumption reader", () => {
       it('given nothing, returns zero', () => {
           expect(epsilon()).toEqual(0);
       });
+
+      it('given 1, returns 1', () => {
+          expect(epsilon(`1`)).toEqual(1);
+      });
       
   });
 });
