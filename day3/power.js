@@ -2,7 +2,7 @@ module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
     const g = gamma(data).toString();
-    return toDecimal(flip(g))
+    return toDecimal(flip(g));
 }
 
 function flip(bit) {
