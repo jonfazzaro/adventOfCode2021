@@ -13,6 +13,10 @@ function gamma(data = `0`) {
   return toDecimal(median(data.split(`\n`)));
 };
 
+function toArray(data) {
+    return data.split('\n').map(s => s.trim());
+}
+
 function toDecimal(value) {
     return parseInt(value.trim(), 2);
 }
