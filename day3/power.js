@@ -40,7 +40,6 @@ function median(values) {
   values.sort((a, b) => {
     return toDecimal(a) - toDecimal(b);
   });
-  console.log(values);
   return middle(values);
 }
 
