@@ -1,7 +1,7 @@
 module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
-    const g = median(data.split(`\n`));
+    const g = median(toArray(data));
     return toDecimal(g.split('').map(flip).join(''));
 }
 
