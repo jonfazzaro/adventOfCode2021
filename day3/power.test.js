@@ -78,7 +78,7 @@ const { gamma, epsilon, oxygen} = require("./power");
           expect(epsilon(readings)).toEqual(2);
       });
 
-      it.only('passes the example case', () => {
+      it('passes the example case', () => {
         const readings = `00100
         11110
         10110
