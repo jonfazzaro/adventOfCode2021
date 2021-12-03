@@ -1,4 +1,6 @@
-module.exports = function power(data = '') {
+module.exports = {gamma}
+
+function gamma(data = '') {
   return toDecimal(mode(data.split(`\n`)));
 };
 

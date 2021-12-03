@@ -1,12 +1,12 @@
-const power = require('./power');
+const {gamma} = require('./power');
 
 describe('The power consumption reader', () => {
     it('given nothing, returns zero', () => {
-        expect(power()).toEqual(0);
+        expect(gamma()).toEqual(0);
     });
 
     it('given 1, returns 1', () => {
-        expect(power(`1`)).toEqual(1);
+        expect(gamma(`1`)).toEqual(1);
     });
 
     it('given more readings, returns the most common', () => {
@@ -16,7 +16,7 @@ describe('The power consumption reader', () => {
        0
        1`;
        
-       expect(power(readings)).toEqual(0);
+       expect(gamma(readings)).toEqual(0);
     });
 
     it('given readings with multiple digits, returns the most common for each digit', () => {
@@ -26,7 +26,7 @@ describe('The power consumption reader', () => {
        01010
        10110`;
        
-       expect(power(readings)).toEqual(14);
+       expect(gamma(readings)).toEqual(14);
     });
 
     it('passes the example', () => {
@@ -43,7 +43,7 @@ describe('The power consumption reader', () => {
         00010
         01010`
 
-       expect(power(readings)).toEqual(22);
+       expect(gamma(readings)).toEqual(22);
     });
 
 
