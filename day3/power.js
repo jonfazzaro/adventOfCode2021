@@ -9,13 +9,6 @@ function oxygen(data){
             return readings;
         return rows.filter(r => r[i] == median(slice(rows, i)));
     });
-    
-    // for (let i = 0; i < width(readings); i++) {
-    //     console.log(filteredReadings);
-    //     filteredReadings = filteredReadings
-    //     .filter(r => r[i] == median(slice(filteredReadings, i)));
-    // } 
-    
     return toDecimal(filteredReadings[0]);
 }
 
