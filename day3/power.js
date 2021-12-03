@@ -1,7 +1,7 @@
 module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
-    return parseInt(data, 2);
+    return toDecimal(data);
 }
 
 function gamma(data = '') {
