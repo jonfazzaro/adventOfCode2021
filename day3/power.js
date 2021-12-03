@@ -16,6 +16,10 @@ function mode(readings) {
     return result;
 }
 
+function width(readings) {
+    return readings[0].length;
+}
+
 function slice(values, index) {
   return values.map((r) => r.split("")[index]);
 }
