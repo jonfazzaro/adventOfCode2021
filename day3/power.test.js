@@ -30,7 +30,7 @@ describe("The power consumption reader", () => {
       expect(gamma(readings)).toEqual(14);
     });
 
-    it.only("passes the example", () => {
+    it("passes the example", () => {
       const readings = `00100
         11110
         10110
