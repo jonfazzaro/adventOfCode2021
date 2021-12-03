@@ -78,7 +78,7 @@ const { gamma, epsilon, oxygen} = require("./power");
           expect(epsilon(readings)).toEqual(2);
       });
 
-      it('passes the example case', () => {
+      it.only('passes the example case', () => {
         const readings = `00100
         11110
         10110
@@ -100,7 +100,7 @@ const { gamma, epsilon, oxygen} = require("./power");
 
   describe('The oxygen generator reading', () => {
       
-    it.only('matches the example results', () => {
+    it('matches the example results', () => {
         const readings = `00100
         11110
         10110
