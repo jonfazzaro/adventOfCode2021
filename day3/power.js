@@ -9,8 +9,8 @@ function oxygen(data){
         console.log(filteredReadings);
         filteredReadings = filteredReadings
         .filter(r => r[i] == median(slice(filteredReadings, i)));
-        
     } 
+    
     return toDecimal(filteredReadings[0]);
 }
 
