@@ -2,12 +2,16 @@ module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
     const g = median(toArray(data));
-    return toDecimal(g.split('').map(flip).join(''));
+    return toDecimal(invert(g));
 }
 
 function gamma(data = `0`) {
   return toDecimal(median(toArray(data)));
 };
+
+function invert(binary) {
+    return binary.split('').map(flip).join('');
+}
 
 function flip(bit) {
     return bit.trim() === '0' ? '1' : '0';
