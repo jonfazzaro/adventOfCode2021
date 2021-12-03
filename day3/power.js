@@ -5,3 +5,7 @@ module.exports = function power(data = '') {
 
   return parseInt(mode.trim() || '0', 2);
 };
+
+function toDecimal(value) {
+    return parseInt(value.trim() || '0', 2);
+}
