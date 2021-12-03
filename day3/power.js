@@ -9,6 +9,7 @@ function oxygen(data){
             return readings;
         return rows.filter(r => r[i] == median(slice(rows, i)));
     });
+    
     return toDecimal(filteredReadings[0]);
 }
 
