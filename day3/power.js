@@ -3,7 +3,7 @@ module.exports = {gamma, epsilon}
 function epsilon(data = `0`){
     const most = median(data.split(`\n`));
     console.log(most)
-    return most.trim() == '0' ? 1 : 0;
+    return most.trim() === '0' ? 1 : 0;
 }
 
 function gamma(data = `0`) {
