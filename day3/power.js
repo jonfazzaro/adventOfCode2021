@@ -4,12 +4,12 @@ function epsilon(data = `0`){
     return toDecimal(data);
 }
 
-function gamma(data = '') {
+function gamma(data = '0') {
   return toDecimal(mode(data.split(`\n`)));
 };
 
 function toDecimal(value) {
-    return parseInt(value.trim() || '0', 2);
+    return parseInt(value.trim(), 2);
 }
 
 function mode(values) {
