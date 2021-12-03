@@ -4,12 +4,17 @@ module.exports = { gamma, epsilon, oxygen };
 
 function oxygen(data){
     const readings = toArray(data);
-    let filteredReadings = [...readings];
-    for (let i = 0; i < width(readings); i++) {
-        console.log(filteredReadings);
-        filteredReadings = filteredReadings
-        .filter(r => r[i] == median(slice(filteredReadings, i)));
-    } 
+    const filteredReadings = range(width(readings)).reduce((rows, i) =>{
+        if (!rows)
+            return readings;
+        return rows.filter(r => r[i] == median(slice(rows, i)));
+    });
+    
+    // for (let i = 0; i < width(readings); i++) {
+    //     console.log(filteredReadings);
+    //     filteredReadings = filteredReadings
+    //     .filter(r => r[i] == median(slice(filteredReadings, i)));
+    // } 
     
     return toDecimal(filteredReadings[0]);
 }
