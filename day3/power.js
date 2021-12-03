@@ -25,7 +25,7 @@ function mode(readings) {
   for (let i = 0; i < width(readings); i++)
     result += median(slice(readings, i));
 
-//   return range(width(readings)).reduce((result = "", i) => {
+//   const result = range(width(readings)).reduce((result = "", i) => {
 //     return result + median(slice(readings, i));
 //   });
 console.log(result);
