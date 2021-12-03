@@ -47,4 +47,8 @@ describe("The power consumption reader", () => {
       expect(gamma(readings)).toEqual(22);
     });
   });
+
+  describe('when computing the epsilon rate', () => {
+      
+  });
 });
