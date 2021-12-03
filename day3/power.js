@@ -1,18 +1,19 @@
 module.exports = { gamma, epsilon };
 
 function epsilon(data = `0`) {
-  const g = median(toArray(data));
-  return toDecimal(invert(g));
+  return toDecimal(invert(mode(toArray(data))));
 }
 
 function gamma(data = `0`) {
-  const readings = toArray(data);
-  let result = "";
-  for (let i = 0; i < readings[0].length; i++) {
-    result += median(slice(readings, i));
-  }
+  return toDecimal(mode(toArray(data)));
+}
 
-  return toDecimal(result);
+function mode(readings) {
+    let result = "";
+    for (let i = 0; i < readings[0].length; i++) {
+      result += median(slice(readings, i));
+    } 
+    return result;
 }
 
 function slice(values, index) {
