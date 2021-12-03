@@ -24,6 +24,10 @@ function mostCommonValue(readings, digit) {
     return median(slice(readings, digit));
 }
 
+function leastCommonValue(readings, digit) {
+    return flip(mostCommonValue(readings, digit));
+}
+
 function epsilon(data = `0`) {
   return toDecimal(invert(mode(toArray(data))));
 }
