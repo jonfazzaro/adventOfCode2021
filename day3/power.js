@@ -4,11 +4,11 @@ module.exports = { gamma, epsilon, oxygen };
 
 function oxygen(data) {
   const readings = toArray(data);
-  const filteredReadings = range(width(readings)).reduce((result, i) => {
+  const filtered = range(width(readings)).reduce((result, i) => {
     return result.filter((r) => r[i] == median(slice(result, i)));
   }, readings);
 
-  return toDecimal(filteredReadings[0]);
+  return toDecimal(filtered[0]);
 }
 
 function epsilon(data = `0`) {
