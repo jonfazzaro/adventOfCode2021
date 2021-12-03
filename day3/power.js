@@ -28,6 +28,7 @@ function mode(readings) {
 //   return range(width(readings)).reduce((result = "", i) => {
 //     return result + median(slice(readings, i));
 //   });
+console.log(result);
 return result;
 }
 
