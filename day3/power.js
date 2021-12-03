@@ -10,7 +10,7 @@ function gamma(data = `0`) {
     const readings = toArray(data);
     let result = '';
     for(let i = 0; i < readings[0].length; i++){
-result += median(slice(readings, i));
+        result += median(slice(readings, i));
     }
 
   return toDecimal(result);
