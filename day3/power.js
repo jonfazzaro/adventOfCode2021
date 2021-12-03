@@ -2,7 +2,6 @@ module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
     const most = median(data.split(`\n`));
-    console.log(most)
     return toDecimal(flip(most))
 }
 
