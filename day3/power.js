@@ -4,7 +4,7 @@ function epsilon(data = `0`){
     const g = median(data.split(`\n`));
     
     console.log(g);
-    return toDecimal(g.trim().split('').map(flip).join(''));
+    return toDecimal(g.split('').map(flip).join(''));
 }
 
 function flip(bit) {
