@@ -8,6 +8,14 @@ function co2(data) {
   return toDecimal(reduceBy(leastCommonValue, data));
 }
 
+function epsilon(data = `0`) {
+  return toDecimal(invert(mode(toArray(data))));
+}
+
+function gamma(data = `0`) {
+  return toDecimal(mode(toArray(data)));
+}
+
 function reduceBy(fn, data) {
   const readings = toArray(data);
   const filtered = range(width(readings)).reduce((result, i) => {
@@ -24,14 +32,6 @@ function mostCommonValue(readings, digit) {
 
 function leastCommonValue(readings, digit) {
   return flip(mostCommonValue(readings, digit));
-}
-
-function epsilon(data = `0`) {
-  return toDecimal(invert(mode(toArray(data))));
-}
-
-function gamma(data = `0`) {
-  return toDecimal(mode(toArray(data)));
 }
 
 function mode(readings) {
