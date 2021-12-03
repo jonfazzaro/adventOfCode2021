@@ -21,10 +21,6 @@ function gamma(data = `0`) {
 }
 
 function mode(readings) {
-  let result = "";
-  for (let i = 0; i < width(readings); i++)
-    result += median(slice(readings, i));
-
   return range(width(readings)).reduce((result = "", i) => {
     return result + median(slice(readings, i));
   });
