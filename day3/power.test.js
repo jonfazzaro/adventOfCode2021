@@ -1,4 +1,4 @@
-const { gamma } = require("./power");
+const { gamma, epsilon } = require("./power");
 
 describe("The power consumption reader", () => {
   describe("when computing gamma rate", () => {
@@ -49,6 +49,9 @@ describe("The power consumption reader", () => {
   });
 
   describe('when computing the epsilon rate', () => {
+      it('given nothing, returns zero', () => {
+          expect(epsilon()).toEqual(0);
+      });
       
   });
 });

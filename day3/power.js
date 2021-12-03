@@ -1,4 +1,8 @@
-module.exports = {gamma}
+module.exports = {gamma, epsilon}
+
+function epsilon(){
+    return 0;
+}
 
 function gamma(data = '') {
   return toDecimal(mode(data.split(`\n`)));
