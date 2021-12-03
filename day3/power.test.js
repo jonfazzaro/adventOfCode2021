@@ -50,14 +50,14 @@ describe("The power consumption reader", () => {
 
   describe('when computing the epsilon rate', () => {
       it('given nothing, returns zero', () => {
-          expect(epsilon()).toEqual(0);
+          expect(epsilon()).toEqual(1);
       });
 
       it('given 1, returns 1', () => {
-          expect(epsilon(`1`)).toEqual(1);
+          expect(epsilon(`1`)).toEqual(0);
       });
 
-      it.only('given more data, returns the least common bit for each digit', () => {
+      it('given more data, returns the least common bit for each digit', () => {
           const readings = `0
           0
           0
