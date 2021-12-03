@@ -1,3 +1,8 @@
-module.exports = function power(data){
-    return parseInt(data || 0);
-}
+
+module.exports = function power(data = '') {
+  const bits = data.split('\n')
+  bits.sort();
+  const mode = bits[Math.floor(bits.length/2)];
+
+  return parseInt(mode || 0);
+};
