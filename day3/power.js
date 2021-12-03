@@ -14,7 +14,7 @@ function co2(data) {
   const readings = toArray(data);
   const filtered = range(width(readings)).reduce((result, i) => {
     if (result.length == 1) return result;
-    return result.filter((r) => r[i] == flip(median(slice(result, i))));
+    return result.filter((r) => r[i] == flip(mostCommonValue(result, i)));
   }, readings);
 
   return toDecimal(filtered[0]);
