@@ -1,1 +1,3 @@
-module.exports = function power(){}
+module.exports = function power(){
+    return 0;
+}

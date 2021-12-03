@@ -5,4 +5,7 @@ describe('The power consumption reader', () => {
        power() 
     });
     
+    it('given nothing, returns zero', () => {
+        expect(power()).toEqual(0);
+    });
 });
