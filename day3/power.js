@@ -4,8 +4,8 @@ module.exports = { gamma, epsilon, oxygen };
 
 function oxygen(data) {
   const readings = toArray(data);
-  const filteredReadings = range(width(readings)).reduce((rows, i) => {
-    return rows.filter((r) => r[i] == median(slice(rows, i)));
+  const filteredReadings = range(width(readings)).reduce((result, i) => {
+    return result.filter((r) => r[i] == median(slice(result, i)));
   }, readings);
 
   return toDecimal(filteredReadings[0]);
