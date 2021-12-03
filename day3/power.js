@@ -1,24 +1,22 @@
 module.exports = { gamma, epsilon, oxygen, co2 };
 
 function oxygen(data) {
-  const readings = toArray(data);
-  const filtered = range(width(readings)).reduce((result, i) => {
-    if (result.length == 1) return result;
-    return result.filter((r) => r[i] == mostCommonValue(result, i));
-  }, readings);
-
-  return toDecimal(filtered[0]);
+  return toDecimal(reduceBy(data, mostCommonValue));
 }
 
 function co2(data) {
-  const readings = toArray(data);
-  const filtered = range(width(readings)).reduce((result, i) => {
-    if (result.length == 1) return result;
-    return result.filter((r) => r[i] == leastCommonValue(result, i));
-  }, readings);
-
-  return toDecimal(filtered[0]);
+ return toDecimal(reduceBy(data, leastCommonValue)); 
 }
+
+function reduceBy(data, fn) {
+    const readings = toArray(data);
+    const filtered = range(width(readings)).reduce((result, i) => {
+      if (result.length == 1) return result;
+      return result.filter((r) => r[i] == fn(result, i));
+    }, readings);
+  
+    return filtered[0];
+  }
 
 function mostCommonValue(readings, digit) {
     return median(slice(readings, digit));
