@@ -11,10 +11,10 @@ function gamma(data = `0`) {
 
 function invert(binary) {
     return binary.split('').map(flip).join('');
-}
-
-function flip(bit) {
-    return bit.trim() === '0' ? '1' : '0';
+    
+    function flip(bit) {
+        return bit.trim() === '0' ? '1' : '0';
+    }
 }
 
 function toArray(data) {
