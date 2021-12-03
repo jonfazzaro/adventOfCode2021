@@ -68,15 +68,15 @@ describe("The power consumption reader", () => {
           expect(epsilon(readings)).toEqual(1);
       });
       
-      it('given readings with multiple bits, returns the least common bit for each digit', () => {
-          const readings = `0
-          0
-          0
-          0
-          0
-          1`;
+      it.only('given readings with multiple bits, returns the least common bit for each digit', () => {
+          const readings = `01
+          01
+          01
+          01
+          01
+          10`;
 
-          expect(epsilon(readings)).toEqual(1);
+          expect(epsilon(readings)).toEqual(2);
       });
 
 
