@@ -1,3 +1,3 @@
-module.exports = function power(){
-    return 0;
+module.exports = function power(data){
+    return parseInt(data || 0);
 }
