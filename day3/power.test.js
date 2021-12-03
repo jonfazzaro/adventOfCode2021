@@ -20,13 +20,13 @@ describe('The power consumption reader', () => {
     });
 
     it('given readings with multiple digits, returns the most common for each digit', () => {
-       const readings = `110
-       011
-       001
-       010
-       101`;
+       const readings = `1101
+       0111
+       0011
+       0101
+       1011`;
        
-       expect(power(readings)).toEqual('011');
+       expect(power(readings)).toEqual('0111');
     });
 
 
