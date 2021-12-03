@@ -1,4 +1,4 @@
-const { gamma, epsilon, oxygen} = require("./power");
+const { gamma, epsilon, oxygen, co2} = require("./power");
 
   describe("when computing gamma rate", () => {
     it("given nothing, returns zero", () => {
@@ -115,6 +115,27 @@ const { gamma, epsilon, oxygen} = require("./power");
         01010`
 
         expect(oxygen(readings)).toEqual(23)
+        
+    });
+  });
+
+  describe('The c02 scrubber reading', () => {
+      
+    it('matches the example results', () => {
+        const readings = `00100
+        11110
+        10110
+        10111
+        10101
+        01111
+        00111
+        11100
+        10000
+        11001
+        00010
+        01010`
+
+        expect(co2(readings)).toEqual(10)
         
     });
   });
