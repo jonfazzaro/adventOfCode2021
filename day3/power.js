@@ -1,4 +1,18 @@
-module.exports = { gamma, epsilon };
+const { filter } = require("lodash");
+
+module.exports = { gamma, epsilon, oxygen };
+
+function oxygen(data){
+    const readings = toArray(data);
+    let filteredReadings = [...readings];
+    for (let i = 0; i < width(readings); i++) {
+        console.log(filteredReadings);
+        filteredReadings = filteredReadings
+        .filter(r => r[i] == median(slice(filteredReadings, i)));
+        
+    } 
+    return toDecimal(filteredReadings[0]);
+}
 
 function epsilon(data = `0`) {
   return toDecimal(invert(mode(toArray(data))));
@@ -17,7 +31,7 @@ function mode(readings) {
 }
 
 function width(readings) {
-    return readings[0].length;
+    return readings[0].trim().length;
 }
 
 function slice(values, index) {
