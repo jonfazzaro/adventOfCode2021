@@ -1,8 +1,8 @@
 module.exports = {gamma, epsilon}
 
 function epsilon(data = `0`){
-    const most = median(data.split(`\n`));
-    return toDecimal(flip(most))
+    const g = gamma(data).toString();
+    return toDecimal(flip(g))
 }
 
 function flip(bit) {
