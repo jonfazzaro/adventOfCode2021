@@ -4,5 +4,5 @@ module.exports = function power(data = '') {
   bits.sort();
   const mode = bits[Math.floor(bits.length/2)];
 
-  return parseInt(mode || 0);
+  return mode.trim() || '0';
 };
