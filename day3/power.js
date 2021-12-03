@@ -3,6 +3,8 @@ module.exports = { gamma, epsilon, oxygen, co2 };
 function oxygen(data) {
   const readings = toArray(data);
   const filtered = range(width(readings)).reduce((result, i) => {
+      if (result.length == 1)
+        return result;
     return result.filter((r) => r[i] == median(slice(result, i)));
   }, readings);
 
