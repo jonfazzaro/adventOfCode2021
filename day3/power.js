@@ -16,5 +16,5 @@ function middle(value) {
 
 function mode(values) {
     values.sort();
-    return middle(bits); 
+    return middle(values); 
 }
