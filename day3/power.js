@@ -64,3 +64,7 @@ function median(values) {
 function middle(value) {
   return value[Math.floor(value.length / 2)];
 }
+
+function range(size) {
+    return [...Array(size).keys()];
+}
