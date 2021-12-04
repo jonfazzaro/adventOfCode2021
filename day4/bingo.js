@@ -7,7 +7,5 @@ module.exports = function bingo(input) {
 }
 
 function drawings(input) {
-    const result = (input || '').split('\n')[0]; 
-    console.log(result);
-    return result;
+    return (input || '').split('\n')[0]; 
 }
