@@ -1,7 +1,7 @@
 module.exports = function bingo(input) {
   if (!input) return null;
   const drawings = parseDrawings(input);
-  const boardsInput = input.replace(drawings, "");
+  const boardsInput = input.split('\n').slice(1).join('\n')
   const winners = parseBoards(boardsInput).filter(hasBingo(drawings));
   return winners;
 };
@@ -18,6 +18,7 @@ function parseBoard(input, index) {
     rows: elements(input, "\n").map(row),
   };
   board.columns = parseColumns(board);
+  console.log(board);
   return board;
 }
 
@@ -31,7 +32,8 @@ function parseColumns(board) {
 
 function hasBingo(drawings) {
   return (board) => 
-    board.rows.some(r => arrayEquals(r, drawings));
+    board.rows.some(r => arrayEquals(r, drawings)) || 
+    board.columns.some(c => arrayEquals(c, drawings));
 }
 
 function parseDrawings(input) {
@@ -53,5 +55,11 @@ function range(size) {
 }
 
 function arrayEquals(a, b) {
-    return a.every(e => b.includes(e));
+    const result = a.every(e => b.includes(e))
+                && b.every(e => a.includes(e));
+    if (result)
+    {
+        console.log(a +" == "+ b)
+    }
+    return result;
 }
