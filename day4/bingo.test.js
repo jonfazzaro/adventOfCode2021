@@ -17,7 +17,7 @@ describe("The bingo game", () => {
   });
 
   it('given two boards and winning drawings, returns the winning board', () => {
-    expect(bingo(`  1, 2, 3, 4, 5
+    expect(bingo(`  1,5,4,3,2 
     
      1  2  8  4  5 
      6  7  8  9 10 
