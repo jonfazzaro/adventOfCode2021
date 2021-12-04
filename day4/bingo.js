@@ -1,1 +1,3 @@
-module.exports = function bingo() {}
+module.exports = function bingo() {
+    return null;
+}
