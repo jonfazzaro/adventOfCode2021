@@ -5,7 +5,7 @@ describe("The bingo game", () => {
     expect(bingo()).toBeNull();
   });
 
-  it.only('given one board and no drawings, returns null', () => {
+  it('given one board and no drawings, returns null', () => {
       expect(bingo(`
       
        1  2  3  4  5 
