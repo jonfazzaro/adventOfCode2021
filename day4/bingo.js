@@ -21,7 +21,7 @@ function parseBoard(input) {
 }
 
 function hasBingo(drawings) {
-  return (board) => false;
+  return (board) => true;
 }
 
 function parseDrawings(input) {
