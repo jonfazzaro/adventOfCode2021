@@ -3,7 +3,6 @@ module.exports = function bingo(input) {
   const drawings = parseDrawings(input);
   const boardsInput = input.split('\n').slice(1).join('\n')
   return parseBoards(boardsInput).filter(hasBingo(drawings));
-  return winners;
 };
 
 function parseBoards(input) {
