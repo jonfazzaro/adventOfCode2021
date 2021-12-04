@@ -16,7 +16,7 @@ describe("The bingo game", () => {
       `)).toBeNull();
   });
 
-  it('given one board and winning drawings, returns the winning board', () => {
+  it('given two boards and winning drawings, returns the winning board', () => {
     expect(bingo(`  1, 2, 3, 4, 5
     
      1  2  3  4  5 
