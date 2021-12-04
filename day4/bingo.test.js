@@ -1,3 +1,4 @@
+const bingo = require('./bingo');
 describe('The bingo game', () => {
     it('exists', () => {
         bingo();
@@ -5,5 +6,3 @@ describe('The bingo game', () => {
     });
     
 });
-
-function bingo() {}
