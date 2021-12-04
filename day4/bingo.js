@@ -21,11 +21,11 @@ function parseBoard(input) {
 }
 
 function hasBingo(drawings) {
-  return (board) => true;
+  return (board) => false;
 }
 
 function parseDrawings(input) {
-  return elements(elements(input, "\n"), ",");
+  return elements(elements(input, "\n")[0], ",");
 }
 
 function elements(input, by) {
