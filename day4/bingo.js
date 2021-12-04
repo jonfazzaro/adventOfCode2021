@@ -10,9 +10,10 @@ function parseBoards(input) {
   return input.split("\n\n").map(parseBoard);
 }
 
-function parseBoard(input) {
+function parseBoard(input, index) {
   const boards = elements(input, "\n")[1];
   return {
+      index,
     rows: boards
       .trim()
       .split("\n")
