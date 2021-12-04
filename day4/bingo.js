@@ -2,7 +2,7 @@ module.exports = function bingo(input) {
   if (!input) return null;
   const drawings = parseDrawings(input);
   const boardsInput = input.split('\n').slice(1).join('\n')
-  const winners = parseBoards(boardsInput).filter(hasBingo(drawings));
+  return parseBoards(boardsInput).filter(hasBingo(drawings));
   return winners;
 };
 
