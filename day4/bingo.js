@@ -1,11 +1,13 @@
 module.exports = function bingo(input) {
-    if (!!drawings())
+    if (!!drawings(input))
         return { 
-            board: 0
+            board: 1
         }
     return null;
 }
 
 function drawings(input) {
-    return (input || '').split('\n')[0]; 
+    const result = (input || '').split('\n')[0]; 
+    console.log(result);
+    return result;
 }
