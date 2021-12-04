@@ -18,7 +18,6 @@ function parseBoard(input, index) {
     rows: elements(input, "\n").map(row),
   };
   board.columns = parseColumns(board);
-  console.log(board);
   return board;
 }
 
