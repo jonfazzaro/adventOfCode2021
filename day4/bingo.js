@@ -1,6 +1,5 @@
 module.exports = function bingo(input) {
     const numbers = drawings(input);
-    console.log(numbers);
     if (!!numbers.length)
         return { 
             board: 1
