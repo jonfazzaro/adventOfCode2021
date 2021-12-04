@@ -8,7 +8,7 @@ module.exports = function bingo(input) {
 
 function parseBoards(input) {
   if (!input) return [];
-  const boards = input.split(/\n\n/).map(parseBoard);
+  return input.split(/\n\n/).map(parseBoard);
   return boards;
 }
 
