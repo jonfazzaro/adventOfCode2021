@@ -37,7 +37,7 @@ describe("The bingo game", () => {
     expect(winners[0].index).toEqual(0);
   });
 
-  it.only("given three boards and winning drawings, returns the winning board", () => {
+  it("given three boards and winning drawings, returns the winning board", () => {
     const winners = bingo(`  1,5,4,3,2 
     
     1  2  8  4  5 
