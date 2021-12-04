@@ -55,11 +55,7 @@ function range(size) {
 }
 
 function arrayEquals(a, b) {
-    const result = a.every(e => b.includes(e))
+    return a.every(e => b.includes(e))
                 && b.every(e => a.includes(e));
-    if (result)
-    {
-        console.log(a +" == "+ b)
-    }
     return result;
 }
