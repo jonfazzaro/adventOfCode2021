@@ -62,12 +62,12 @@ function parseBoard(input, index) {
 }
 
 function rows(board) {
-  return range(5).map((i) => board.elements.slice(i * 5, i * 5 + 5));
+  return range(WIDTH).map((i) => board.elements.slice(i * WIDTH, i * WIDTH + WIDTH));
 }
 
 function columns(board) {
   const boardRows = rows(board);
-  return range(5).map((i) => boardRows.map((r) => r[i]));
+  return range(WIDTH).map((i) => boardRows.map((r) => r[i]));
 }
 
 function parseDrawings(input) {
