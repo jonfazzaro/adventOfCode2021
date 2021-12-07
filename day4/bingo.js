@@ -62,11 +62,15 @@ function parseBoard(input, index) {
 }
 
 function rows(board) {
-  return range(WIDTH).map((i) => {
-    const begin = i * WIDTH;
-    const end = begin + WIDTH;
-    return board.elements.slice(begin, end)
-  });
+  return range(WIDTH).map(row(board));
+}
+
+function row(board) {
+  return i => {
+  const begin = i * WIDTH;
+  const end = begin + WIDTH;
+  return board.elements.slice(begin, end);
+  }
 }
 
 function columns(board) {
