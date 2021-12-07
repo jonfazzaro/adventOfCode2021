@@ -89,7 +89,7 @@ describe("The bingo game", () => {
     expect(winner.score).toEqual(4680);
   });
 
-  it('matches the example case', () => {
+  it.only('matches the example case', () => {
     const winner = bingo(`7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
     22 13 17 11  0
