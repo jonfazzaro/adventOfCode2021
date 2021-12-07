@@ -41,11 +41,11 @@ function isAllMarked(set) {
 }
 
 function isMarked(value) {
-  return value.endsWith("*");
+  return value.endsWith(MARKER);
 }
 
 function marked(elements, drawing) {
-  return elements.map((e) => (e === drawing ? e + "*" : e));
+  return elements.map((e) => (e === drawing ? e + MARKER : e));
 }
 
 function parseBoards(input) {
