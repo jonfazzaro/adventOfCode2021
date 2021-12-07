@@ -25,6 +25,10 @@ module.exports = function bingo(input) {
   return winner;
 };
 
+function mark(board) {
+      board.elements = marked(boards[b].elements, drawn);
+}
+
 function hasWon(board) {
   return (
     rows(board).some((row) => row.every((n) => n.endsWith("*"))) ||
