@@ -26,7 +26,7 @@ module.exports = function bingo(input) {
 };
 
 function mark(board, drawn) {
-      board.elements = marked(board.elements, drawn);
+    board.elements = marked(board.elements, drawn);
 }
 
 function hasWon(board) {
