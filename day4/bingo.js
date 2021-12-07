@@ -12,10 +12,7 @@ module.exports = function bingo(input) {
     for (let b = 0; b < boards.length; b++) {
       boards[b].elements = marked(boards[b].elements, drawn);
 
-      if (
-        rows(boards[b]).some((row) => row.every((n) => n.endsWith("*"))) ||
-        columns(boards[b]).some((col) => col.every((n) => n.endsWith("*")))
-      ) {
+      if (hasWon(boards[b])) {
         winner = boards[b];
         winner.draw = drawn;
         break;
