@@ -109,6 +109,8 @@ describe("The bingo game", () => {
     18  8 23 26 20
     22 11 13  6  5
      2  0 12  3  7`);
+
+     console.log(winners);
     
     expect(winners[0].index).toEqual(2);
     expect(winners[0].score).toEqual(4512);

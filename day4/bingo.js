@@ -1,36 +1,50 @@
 const WIDTH = 5;
 const MARKER = "*";
 
+const _data = { boards: null };
 module.exports = function bingo(input) {
   if (!input) return [];
   const drawings = parseDrawings(input);
-  const boards = parseBoards(input);
-  return game(boards, drawings);
+  _data.boards = parseBoards(input);
+  return game(drawings);
 };
 
-function game(boards, drawings) {
+function game(drawings) {
   return drawings
-    .map(drawing => play(drawing, boards))
+    .map(drawing => play(drawing))
     .flat()
     .filter(w => !!w);
 }
 
-function play(drawing, boards) {
-  const winners = [];
-  for (let b = 0; b < boards.length; b++) {
-    if (!hasWon(boards[b])) {
-      mark(boards[b], drawing);
+function play(drawing) {
+  const stillInPlay = _data.boards
+    .filter(b => !hasWon(b));
 
-      if (hasWon(boards[b]))
-        winners.push({
-          ...boards[b],
-          draw: drawing,
-          score: score(boards[b], drawing),
-        });
-    }
-  }
+    stillInPlay.forEach(board => {
+      mark(board, drawing);
+    });
 
-  return winners;
+    return stillInPlay.filter(hasWon).map(b => ({
+      ...b,
+      draw: drawing,
+      score: score(b, drawing),
+    }));
+
+  // const winners = [];
+  // for (let b = 0; b < boards.length; b++) {
+  //   if (!hasWon(boards[b])) {
+  //     mark(boards[b], drawing);
+
+  //     if (hasWon(boards[b]))
+  //       winners.push({
+  //         ...boards[b],
+  //         draw: drawing,
+  //         score: score(boards[b], drawing),
+  //       });
+  //   }
+  // }
+
+  // return winners;
 }
 
 function score(board, drawing) {
