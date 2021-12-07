@@ -63,7 +63,7 @@ describe("The bingo game", () => {
     expect(winner.draw).toEqual("2");
   });
 
-  it("given three boards and a winning column, returns the winning board", () => {
+  it.only("given three boards and a winning column, returns the winning board", () => {
     const winner = bingo(`  3,  8, 13, 23,  18
     
     1  2  9  4  5 
@@ -89,7 +89,7 @@ describe("The bingo game", () => {
     expect(winner.score).toEqual(4680);
   });
 
-  it.only('matches the example case', () => {
+  it('matches the example case', () => {
     const winner = bingo(`7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
     22 13 17 11  0
