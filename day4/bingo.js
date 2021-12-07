@@ -33,14 +33,14 @@ function mark(board, drawing) {
 }
 
 function hasWon(board) {
-  return rows(board).some(isAllMarked) || columns(board).some(isAllMarked);
+  return rows(board).some(haveAllMarked) || columns(board).some(haveAllMarked);
 }
 
-function isAllMarked(set) {
-  return set.every(isMarked);
+function haveAllMarked(set) {
+  return set.every(valueIsMarked);
 }
 
-function isMarked(value) {
+function valueIsMarked(value) {
   return value.endsWith(MARKER);
 }
 
