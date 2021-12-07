@@ -17,6 +17,7 @@ module.exports = function bingo(input) {
         columns(boards[b]).some((col) => col.every((n) => n.endsWith("*")))
       ) {
         winner = boards[b];
+        winner.draw = drawn;
         break;
       }
     }

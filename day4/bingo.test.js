@@ -35,6 +35,7 @@ describe("The bingo game", () => {
      `);
 
     expect(winner.index).toEqual(0);
+    expect(winner.draw).toEqual("2");
   });
 
   it("given three boards and a winning row, returns the winning board", () => {
