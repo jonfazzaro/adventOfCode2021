@@ -1,10 +1,41 @@
 module.exports = function bingo(input) {
   if (!input) return null;
   const drawings = parseDrawings(input);
-  const boardsInput = input.split('\n').slice(1).join('\n')
-  return parseBoards(boardsInput)
-    .filter(hasBingo(drawings));
+  const boardsInput = input.split("\n").slice(1).join("\n");
+  const boards = parseBoards(boardsInput);
+
+  let winner = null;
+  let i = 0;
+  while (winner == null && i < drawings.length) {
+    const drawn = drawings[i];
+
+    for (let b = 0; b < boards.length; b++) {
+      boards[b].elements = marked(boards[b].elements, drawn);
+
+      if (
+        rows(boards[b]).some((row) => row.every((n) => n.endsWith("*"))) ||
+        columns(boards[b]).some((col) => col.every((n) => n.endsWith("*")))
+      ) {
+
+        console.log("Rows: " + rows(boards[b]).some((row) => row.every((n) => n.endsWith("*"))))
+        console.log("Columns: " + columns(boards[b]).some((col) => col.every((n) => n.endsWith("*"))))
+          //.some((row) => row.every((n) => n.endsWith("*"))))
+        winner = boards[b];
+        console.log(`Winner with ${drawn}!` + JSON.stringify(winner));
+        break;
+      }
+    }
+
+    // console.log(boards);
+    i++;
+  }
+
+  return winner;
 };
+
+function marked(elements, drawn) {
+  return elements.map((e) => (e === drawn ? e + "*" : e));
+}
 
 function parseBoards(input) {
   if (!input) return [];
@@ -12,31 +43,24 @@ function parseBoards(input) {
 }
 
 function parseBoard(input, index) {
-  const board = {
+  return {
     index,
-    rows: elements(input, "\n").map(row),
+    elements: elements(input, /\s/),
   };
-  board.columns = parseColumns(board);
-  return board;
 }
 
-function row(line) {
-  return elements(line, " ").map((e) => parseInt(e.trim()));
+function rows(board) {
+  return range(5).map((i) => board.elements.slice(i * 5, (i * 5) + 5));
 }
 
-function parseColumns(board) {
-    return range(5).map((i) => board.rows.map((r) => r[i]));
-}
-
-function hasBingo(drawings) {
-  return (board) => 
-    board.rows.some(r => arrayEquals(r, drawings)) || 
-    board.columns.some(c => arrayEquals(c, drawings));
+function columns(board) {
+  const boardRows = rows(board);
+  return range(5).map((i) => boardRows.map((r) => r[i]));
 }
 
 function parseDrawings(input) {
-    const firstLine =elements(input, "\n")[0];
-  return elements(firstLine, ",").map(i => parseInt(i.trim()));
+  const firstLine = elements(input, "\n")[0];
+  return elements(firstLine, ",").map((i) => i.trim());
 }
 
 function elements(input, by) {
@@ -50,9 +74,4 @@ function elements(input, by) {
 
 function range(size) {
   return [...Array(size).keys()];
-}
-
-function arrayEquals(a, b) {
-    return a.every(e => b.includes(e))
-        && b.every(e => a.includes(e));
 }
