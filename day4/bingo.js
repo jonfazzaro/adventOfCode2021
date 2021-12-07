@@ -5,7 +5,6 @@ module.exports = function bingo(input) {
   if (!input) return [];
   const drawings = parseDrawings(input);
   const boards = parseBoards(input);
-  console.log(boards)
   return game(boards, drawings);
 };
 
