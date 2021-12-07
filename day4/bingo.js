@@ -33,7 +33,8 @@ function mark(board, drawing) {
 }
 
 function hasWon(board) {
-  return rows(board).some(haveAllMarked) || columns(board).some(haveAllMarked);
+  return rows(board).some(haveAllMarked) 
+      || columns(board).some(haveAllMarked);
 }
 
 function haveAllMarked(set) {
