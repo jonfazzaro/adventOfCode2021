@@ -9,13 +9,9 @@ module.exports = function bingo(input) {
 };
 
 function game(boards, drawings) {
-  let winners = [];
-  let i = 0;
-  while (i < drawings.length) {
-    winners.push(play(drawings[i], boards));
-    i++;
-  }
-  return winners.filter(w => !!w);
+
+  return drawings.map(drawing => play(drawing,boards))
+  .filter(w => !!w);
 }
 
 function play(drawing, boards) {
