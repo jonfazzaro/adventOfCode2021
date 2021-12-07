@@ -19,9 +19,7 @@ function play(drawing, boards) {
     mark(boards[b], drawing);
 
     if (hasWon(boards[b])) {
-      const winner = boards[b];
-      winner.draw = drawing;
-      return winner;
+      return { ...boards[b], draw: drawing };
     }
   }
 
