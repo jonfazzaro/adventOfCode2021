@@ -9,13 +9,13 @@ module.exports = function bingo(input) {
 };
 
 function game(boards, drawings) {
-  let winner = null;
+  let winners = [];
   let i = 0;
-  while (winner == null && i < drawings.length) {
-    winner = play(drawings[i], boards);
+  while (i < drawings.length) {
+    winners.push(play(drawings[i], boards));
     i++;
   }
-  return [winner];
+  return winners.filter(w => !!w);
 }
 
 function play(drawing, boards) {
@@ -35,7 +35,7 @@ function play(drawing, boards) {
 
 function score(board, drawing) {
   const unmarked = board.elements.filter(e => !valueIsMarked(e)).map(e => parseInt(e.trim()));
-  const sum = unmarked.reduce((total, e) => total + e);
+  const sum = unmarked.reduce((total, e) => total + e, 0);
   return sum * parseInt(drawing);
 }
 

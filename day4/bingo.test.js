@@ -18,7 +18,7 @@ describe("The bingo game", () => {
     ).toEqual([])
   });
 
-  it.only("given two boards and winning drawings, returns the winning board", () => {
+  it("given two boards and winning drawings, returns the winning board", () => {
       const winners = bingo(`  1,5,4,8,2 
     
       1  2  8  4  5 
