@@ -37,7 +37,7 @@ describe("The bingo game", () => {
     expect(winner.index).toEqual(0);
   });
 
-  it("given three boards and a winning row, returns the winning board", () => {
+  it.only("given three boards and a winning row, returns the winning board", () => {
     const winner = bingo(`  23, 7, 1,5,19,20,  4,3,2 
     
     1  2  8  4  5 
@@ -61,7 +61,7 @@ describe("The bingo game", () => {
     expect(winner.index).toEqual(2);
   });
 
-  it.only("given three boards and a winning column, returns the winning board", () => {
+  it("given three boards and a winning column, returns the winning board", () => {
     const winner = bingo(`  3,  8, 13, 23,  18
     
     1  2  9  4  5 
