@@ -10,7 +10,8 @@ module.exports = function bingo(input) {
     const drawn = drawings[i];
 
     for (let b = 0; b < boards.length; b++) {
-      boards[b].elements = marked(boards[b].elements, drawn);
+      mark(boards[b], drawn);
+      // boards[b].elements = marked(boards[b].elements, drawn);
 
       if (hasWon(boards[b])) {
         winner = boards[b];
@@ -25,7 +26,7 @@ module.exports = function bingo(input) {
   return winner;
 };
 
-function mark(board) {
+function mark(board, drawn) {
       board.elements = marked(board.elements, drawn);
 }
 
