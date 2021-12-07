@@ -16,12 +16,7 @@ module.exports = function bingo(input) {
         rows(boards[b]).some((row) => row.every((n) => n.endsWith("*"))) ||
         columns(boards[b]).some((col) => col.every((n) => n.endsWith("*")))
       ) {
-
-        console.log("Rows: " + rows(boards[b]).some((row) => row.every((n) => n.endsWith("*"))))
-        console.log("Columns: " + columns(boards[b]).some((col) => col.every((n) => n.endsWith("*"))))
-          //.some((row) => row.every((n) => n.endsWith("*"))))
         winner = boards[b];
-        console.log(`Winner with ${drawn}!` + JSON.stringify(winner));
         break;
       }
     }
