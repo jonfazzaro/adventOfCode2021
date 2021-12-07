@@ -19,30 +19,26 @@ function play(drawing, boards) {
   for (let b = 0; b < boards.length; b++) {
     mark(boards[b], drawing);
 
-    if (hasWon(boards[b])) 
-      return { ...boards[b], draw: drawing };
+    if (hasWon(boards[b])) return { ...boards[b], draw: drawing };
   }
 
   return null;
 }
 
 function mark(board, drawing) {
-    board.elements = marked(board.elements, drawing);
+  board.elements = marked(board.elements, drawing);
 }
 
 function hasWon(board) {
-  return (
-    rows(board).some(isAllMarked) ||
-    columns(board).some(isAllMarked)
-  );
+  return rows(board).some(isAllMarked) || columns(board).some(isAllMarked);
 }
 
 function isAllMarked(set) {
- return set.every((n) => n.endsWith("*")); 
+  return set.every(isMarked);
 }
 
 function isMarked(value) {
- return value.endsWith("*"); 
+  return value.endsWith("*");
 }
 
 function marked(elements, drawing) {
