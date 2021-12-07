@@ -4,15 +4,20 @@ module.exports = function bingo(input) {
   const boardsInput = input.split("\n").slice(1).join("\n");
   const boards = parseBoards(boardsInput);
 
+  
+
+  return game(boards, drawings);
+};
+
+function game(boards, drawings) {
   let winner = null;
   let i = 0;
   while (winner == null && i < drawings.length) {
     winner = play(drawings[i], boards);
     i++;
   }
-
   return winner;
-};
+}
 
 function play(drawing, boards) {
   for (let b = 0; b < boards.length; b++) {
