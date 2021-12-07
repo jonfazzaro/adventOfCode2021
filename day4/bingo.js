@@ -63,14 +63,16 @@ function marked(elements, drawing) {
 function parseBoards(input) {
   const boardsInput = input.split("\n").slice(1).join("\n");
   if (!boardsInput) return [];
-  return boardsInput.split(/\n\n/).map(parseBoard);
+  return boardsInput.split(/\n\s+?\n/).map(parseBoard);
 }
 
 function parseBoard(input, index) {
-  return {
+  // console.log(input.split(/\n\s+?\n/));
+  const board = {
     index,
     elements: elements(input, /\s/),
   };
+  return board;
 }
 
 function rows(board) {
