@@ -21,10 +21,10 @@ module.exports = function bingo(input) {
       }
     }
 
-    console.log(boards);
     i++;
   }
-
+  
+  console.log(boards);
   return winner;
 };
 
