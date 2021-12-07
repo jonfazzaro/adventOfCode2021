@@ -1,8 +1,7 @@
 module.exports = function bingo(input) {
   if (!input) return null;
   const drawings = parseDrawings(input);
-  const boardsInput = input.split("\n").slice(1).join("\n");
-  const boards = parseBoards(boardsInput);
+  const boards = parseBoards(input);
   return game(boards, drawings);
 };
 
@@ -43,8 +42,9 @@ function marked(elements, drawing) {
 }
 
 function parseBoards(input) {
-  if (!input) return [];
-  return input.split(/\n\n/).map(parseBoard);
+  const boardsInput = input.split("\n").slice(1).join("\n");
+  if (!boardsInput) return [];
+  return boardsInput.split(/\n\n/).map(parseBoard);
 }
 
 function parseBoard(input, index) {
