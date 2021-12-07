@@ -5,28 +5,34 @@ module.exports = function bingo(input) {
   if (!input) return [];
   const drawings = parseDrawings(input);
   const boards = parseBoards(input);
+  console.log(boards)
   return game(boards, drawings);
 };
 
 function game(boards, drawings) {
   return drawings
     .map(drawing => play(drawing, boards))
+    .flat()
     .filter(w => !!w);
 }
 
 function play(drawing, boards) {
+  const winners = [];
   for (let b = 0; b < boards.length; b++) {
-    mark(boards[b], drawing);
+    if (!hasWon(boards[b])) {
+      console.log(`Playing ${drawing} on ` + boards[b].score);
+      mark(boards[b], drawing);
 
-    if (hasWon(boards[b]))
-      return {
-        ...boards[b],
-        draw: drawing,
-        score: score(boards[b], drawing),
-      };
+      if (hasWon(boards[b]))
+        winners.push({
+          ...boards[b],
+          draw: drawing,
+          score: score(boards[b], drawing),
+        });
+    }
   }
 
-  return null;
+  return winners;
 }
 
 function score(board, drawing) {
