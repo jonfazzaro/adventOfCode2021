@@ -17,34 +17,17 @@ function game(drawings) {
 }
 
 function play(drawing) {
-  const stillInPlay = _data.boards
-    .filter(b => !hasWon(b));
+  const stillInPlay = _data.boards.filter(b => !hasWon(b));
 
-    stillInPlay.forEach(board => {
-      mark(board, drawing);
-    });
+  stillInPlay.forEach(board => {
+    mark(board, drawing);
+  });
 
-    return stillInPlay.filter(hasWon).map(b => ({
-      ...b,
-      draw: drawing,
-      score: score(b, drawing),
-    }));
-
-  // const winners = [];
-  // for (let b = 0; b < boards.length; b++) {
-  //   if (!hasWon(boards[b])) {
-  //     mark(boards[b], drawing);
-
-  //     if (hasWon(boards[b]))
-  //       winners.push({
-  //         ...boards[b],
-  //         draw: drawing,
-  //         score: score(boards[b], drawing),
-  //       });
-  //   }
-  // }
-
-  // return winners;
+  return stillInPlay.filter(hasWon).map(b => ({
+    ...b,
+    draw: drawing,
+    score: score(b, drawing),
+  }));
 }
 
 function score(board, drawing) {
