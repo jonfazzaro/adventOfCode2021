@@ -18,7 +18,7 @@ describe("The bingo game", () => {
     ).toBeNull()
   });
 
-  it.only("given two boards and winning drawings, returns the winning board", () => {
+  it("given two boards and winning drawings, returns the winning board", () => {
       const winner = bingo(`  1,5,4,8,2 
     
       1  2  8  4  5 
