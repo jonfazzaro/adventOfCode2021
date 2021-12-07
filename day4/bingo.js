@@ -41,6 +41,10 @@ function isAllMarked(set) {
  return set.every((n) => n.endsWith("*")); 
 }
 
+function isMarked(value) {
+ return value.endsWith("*"); 
+}
+
 function marked(elements, drawing) {
   return elements.map((e) => (e === drawing ? e + "*" : e));
 }
