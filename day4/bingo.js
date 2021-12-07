@@ -66,11 +66,11 @@ function rows(board) {
 }
 
 function row(board) {
-  return i => {
-  const begin = i * WIDTH;
-  const end = begin + WIDTH;
-  return board.elements.slice(begin, end);
-  }
+  return (i) => {
+    const begin = i * WIDTH;
+    const end = begin + WIDTH;
+    return board.elements.slice(begin, end);
+  };
 }
 
 function columns(board) {
