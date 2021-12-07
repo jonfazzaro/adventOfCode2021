@@ -20,7 +20,6 @@ function play(drawing, boards) {
   const winners = [];
   for (let b = 0; b < boards.length; b++) {
     if (!hasWon(boards[b])) {
-      console.log(`Playing ${drawing} on ` + boards[b].score);
       mark(boards[b], drawing);
 
       if (hasWon(boards[b]))
