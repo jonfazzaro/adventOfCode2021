@@ -19,9 +19,7 @@ function game(drawings) {
 function play(drawing) {
   const stillInPlay = _data.boards.filter(b => !hasWon(b));
 
-  stillInPlay.forEach(board => {
-    mark(board, drawing);
-  });
+  stillInPlay.forEach(board => mark(board, drawing));
 
   return stillInPlay.filter(hasWon).map(b => ({
     ...b,
