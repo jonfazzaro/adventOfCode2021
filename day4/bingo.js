@@ -32,9 +32,13 @@ function mark(board, drawing) {
 
 function hasWon(board) {
   return (
-    rows(board).some((row) => row.every((n) => n.endsWith("*"))) ||
-    columns(board).some((col) => col.every((n) => n.endsWith("*")))
+    rows(board).some(isAllMarked) ||
+    columns(board).some(isAllMarked)
   );
+}
+
+function isAllMarked(set) {
+ return set.every((n) => n.endsWith("*")); 
 }
 
 function marked(elements, drawing) {
