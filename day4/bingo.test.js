@@ -60,6 +60,7 @@ describe("The bingo game", () => {
   21 22 23 24 25
    `)
     expect(winner.index).toEqual(2);
+    expect(winner.draw).toEqual("2");
   });
 
   it("given three boards and a winning column, returns the winning board", () => {
