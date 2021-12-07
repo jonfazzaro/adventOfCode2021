@@ -21,14 +21,15 @@ module.exports = function bingo(input) {
 
     i++;
   }
-  
+
   return winner;
 };
 
 function hasWon(board) {
-        return rows(board).some((row) => row.every((n) => n.endsWith("*"))) 
-        || columns(board).some((col) => col.every((n) => n.endsWith("*")))
-
+  return (
+    rows(board).some((row) => row.every((n) => n.endsWith("*"))) ||
+    columns(board).some((col) => col.every((n) => n.endsWith("*")))
+  );
 }
 
 function marked(elements, drawn) {
@@ -48,7 +49,7 @@ function parseBoard(input, index) {
 }
 
 function rows(board) {
-  return range(5).map((i) => board.elements.slice(i * 5, (i * 5) + 5));
+  return range(5).map((i) => board.elements.slice(i * 5, i * 5 + 5));
 }
 
 function columns(board) {
