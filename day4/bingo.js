@@ -2,7 +2,7 @@ const WIDTH = 5;
 const MARKER = "*";
 
 module.exports = function bingo(input) {
-  if (!input) return null;
+  if (!input) return [];
   const drawings = parseDrawings(input);
   const boards = parseBoards(input);
   return game(boards, drawings);
@@ -15,7 +15,7 @@ function game(boards, drawings) {
     winner = play(drawings[i], boards);
     i++;
   }
-  return winner;
+  return [winner];
 }
 
 function play(drawing, boards) {
