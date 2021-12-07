@@ -67,7 +67,6 @@ function parseBoards(input) {
 }
 
 function parseBoard(input, index) {
-  // console.log(input.split(/\n\s+?\n/));
   const board = {
     index,
     elements: elements(input, /\s/),
