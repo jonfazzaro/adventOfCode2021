@@ -11,7 +11,7 @@ module.exports = function bingo(input) {
     i++;
   }
 
-  return winner || null;
+  return winner;
 };
 
 function play(drawing, boards) {
@@ -24,6 +24,8 @@ function play(drawing, boards) {
       return winner;
     }
   }
+
+  return null;
 }
 
 function mark(board, drawing) {
