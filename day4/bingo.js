@@ -11,7 +11,6 @@ module.exports = function bingo(input) {
 
     for (let b = 0; b < boards.length; b++) {
       mark(boards[b], drawn);
-      // boards[b].elements = marked(boards[b].elements, drawn);
 
       if (hasWon(boards[b])) {
         winner = boards[b];
