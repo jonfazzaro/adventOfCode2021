@@ -1,12 +1,12 @@
+const WIDTH = 5;
+const MARKER = "*";
+
 module.exports = function bingo(input) {
   if (!input) return null;
   const drawings = parseDrawings(input);
   const boards = parseBoards(input);
   return game(boards, drawings);
 };
-
-const WIDTH = 5;
-const MARKER = "*";
 
 function game(boards, drawings) {
   let winner = null;
