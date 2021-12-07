@@ -28,6 +28,12 @@ module.exports = function bingo(input) {
   return winner;
 };
 
+function hasWon(board) {
+        return rows(board).some((row) => row.every((n) => n.endsWith("*"))) 
+        || columns(board).some((col) => col.every((n) => n.endsWith("*")))
+
+}
+
 function marked(elements, drawn) {
   return elements.map((e) => (e === drawn ? e + "*" : e));
 }
