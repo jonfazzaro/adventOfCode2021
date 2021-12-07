@@ -86,6 +86,7 @@ describe("The bingo game", () => {
    `)
     expect(winner.index).toEqual(2);
     expect(winner.draw).toEqual("18");
+    expect(winner.score).toEqual(4680);
   });
 
 });

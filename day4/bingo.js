@@ -22,10 +22,21 @@ function play(drawing, boards) {
   for (let b = 0; b < boards.length; b++) {
     mark(boards[b], drawing);
 
-    if (hasWon(boards[b])) return { ...boards[b], draw: drawing };
+    if (hasWon(boards[b])) 
+      return { 
+        ...boards[b], 
+        draw: drawing,
+        score: score(boards[b], drawing)
+      };
   }
 
   return null;
+}
+
+function score(board, drawing) {
+  const unmarked = board.elements.filter(e => !valueIsMarked(e)).map(e => parseInt(e.trim()));
+  const sum = unmarked.reduce((total, e) => total + e);
+  return sum * parseInt(drawing);
 }
 
 function mark(board, drawing) {
