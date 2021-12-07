@@ -5,6 +5,9 @@ module.exports = function bingo(input) {
   return game(boards, drawings);
 };
 
+const WIDTH = 5;
+const MARKER = "*";
+
 function game(boards, drawings) {
   let winner = null;
   let i = 0;
