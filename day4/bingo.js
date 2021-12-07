@@ -3,9 +3,6 @@ module.exports = function bingo(input) {
   const drawings = parseDrawings(input);
   const boardsInput = input.split("\n").slice(1).join("\n");
   const boards = parseBoards(boardsInput);
-
-  
-
   return game(boards, drawings);
 };
 
