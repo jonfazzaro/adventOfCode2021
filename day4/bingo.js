@@ -22,7 +22,8 @@ function play(drawing, boards) {
   for (let b = 0; b < boards.length; b++) {
     mark(boards[b], drawing);
 
-    if (hasWon(boards[b])) return { ...boards[b], draw: drawing };
+    if (hasWon(boards[b])) 
+      return { ...boards[b], draw: drawing };
   }
 
   return null;
