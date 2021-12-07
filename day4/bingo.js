@@ -24,7 +24,7 @@ module.exports = function bingo(input) {
     i++;
   }
   
-  console.log(boards);
+  // console.log(boards);
   return winner;
 };
 
