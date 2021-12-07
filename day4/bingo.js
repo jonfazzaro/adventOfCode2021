@@ -1,41 +1,38 @@
 const WIDTH = 5;
 const MARKER = "*";
 
+const _data = { boards: null };
 module.exports = function bingo(input) {
-  if (!input) return null;
+  if (!input) return [];
   const drawings = parseDrawings(input);
-  const boards = parseBoards(input);
-  return game(boards, drawings);
+  _data.boards = parseBoards(input);
+  return game(drawings);
 };
 
-function game(boards, drawings) {
-  let winner = null;
-  let i = 0;
-  while (winner == null && i < drawings.length) {
-    winner = play(drawings[i], boards);
-    i++;
-  }
-  return winner;
+function game(drawings) {
+  return drawings
+    .map(drawing => play(drawing))
+    .flat()
+    .filter(w => !!w);
 }
 
-function play(drawing, boards) {
-  for (let b = 0; b < boards.length; b++) {
-    mark(boards[b], drawing);
+function play(drawing) {
+  const stillInPlay = _data.boards.filter(b => !hasWon(b));
 
-    if (hasWon(boards[b])) 
-      return { 
-        ...boards[b], 
-        draw: drawing,
-        score: score(boards[b], drawing)
-      };
-  }
+  stillInPlay.forEach(board => mark(board, drawing));
 
-  return null;
+  return stillInPlay.filter(hasWon).map(b => ({
+    ...b,
+    draw: drawing,
+    score: score(b, drawing),
+  }));
 }
 
 function score(board, drawing) {
-  const unmarked = board.elements.filter(e => !valueIsMarked(e)).map(e => parseInt(e.trim()));
-  const sum = unmarked.reduce((total, e) => total + e);
+  const unmarked = board.elements
+    .filter(e => !valueIsMarked(e))
+    .map(e => parseInt(e.trim()));
+  const sum = unmarked.reduce((total, e) => total + e, 0);
   return sum * parseInt(drawing);
 }
 
@@ -44,8 +41,7 @@ function mark(board, drawing) {
 }
 
 function hasWon(board) {
-  return rows(board).some(haveAllMarked) 
-      || columns(board).some(haveAllMarked);
+  return rows(board).some(haveAllMarked) || columns(board).some(haveAllMarked);
 }
 
 function haveAllMarked(set) {
@@ -57,7 +53,7 @@ function valueIsMarked(value) {
 }
 
 function marked(elements, drawing) {
-  return elements.map((e) => (e === drawing ? e + MARKER : e));
+  return elements.map(e => (e === drawing ? e + MARKER : e));
 }
 
 function parseBoards(input) {
@@ -79,7 +75,7 @@ function rows(board) {
 }
 
 function row(board) {
-  return (i) => {
+  return i => {
     const begin = i * WIDTH;
     const end = begin + WIDTH;
     return board.elements.slice(begin, end);
@@ -88,12 +84,12 @@ function row(board) {
 
 function columns(board) {
   const boardRows = rows(board);
-  return range(WIDTH).map((i) => boardRows.map((r) => r[i]));
+  return range(WIDTH).map(i => boardRows.map(r => r[i]));
 }
 
 function parseDrawings(input) {
   const firstLine = elements(input, "\n")[0];
-  return elements(firstLine, ",").map((i) => i.trim());
+  return elements(firstLine, ",").map(i => i.trim());
 }
 
 function elements(input, by) {
@@ -101,8 +97,8 @@ function elements(input, by) {
   return input
     .trim()
     .split(by)
-    .map((s) => s.trim())
-    .filter((s) => !!s);
+    .map(s => s.trim())
+    .filter(s => !!s);
 }
 
 function range(size) {
