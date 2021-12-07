@@ -7,26 +7,27 @@ module.exports = function bingo(input) {
   let winner = null;
   let i = 0;
   while (winner == null && i < drawings.length) {
-    const drawn = drawings[i];
-
-    for (let b = 0; b < boards.length; b++) {
-      mark(boards[b], drawn);
-
-      if (hasWon(boards[b])) {
-        winner = boards[b];
-        winner.draw = drawn;
-        break;
-      }
-    }
-
+    winner = play(drawings[i], boards);
     i++;
   }
 
-  return winner;
+  return winner || null;
 };
 
-function mark(board, drawn) {
-    board.elements = marked(board.elements, drawn);
+function play(drawing, boards) {
+  for (let b = 0; b < boards.length; b++) {
+    mark(boards[b], drawing);
+
+    if (hasWon(boards[b])) {
+      const winner = boards[b];
+      winner.draw = drawing;
+      return winner;
+    }
+  }
+}
+
+function mark(board, drawing) {
+    board.elements = marked(board.elements, drawing);
 }
 
 function hasWon(board) {
@@ -36,8 +37,8 @@ function hasWon(board) {
   );
 }
 
-function marked(elements, drawn) {
-  return elements.map((e) => (e === drawn ? e + "*" : e));
+function marked(elements, drawing) {
+  return elements.map((e) => (e === drawing ? e + "*" : e));
 }
 
 function parseBoards(input) {
