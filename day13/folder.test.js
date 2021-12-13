@@ -1,3 +1,5 @@
+const {parse} = require('./folder');
+
 describe("The grid parser", () => {
   it("given empty, returns empty", () => {
     expect(parse(``)).toEqual([]);
@@ -28,17 +30,6 @@ describe("The grid parser", () => {
     ]);
   });
 });
-
-function parse(input) {
-  const lines = input
-    .split("\n")
-    .map(s => s.trim())
-    .filter(s => !!s);
-  return lines.map(line => [
-    parseInt(line.split(",")[0]),
-    parseInt(line.split(",")[1]),
-  ]);
-}
 
 function print(coordinates) {
   console.log([2, 3]);

@@ -1,5 +1,7 @@
 
-export function parse(input) {
+module.exports = {parse} 
+
+function parse(input) {
   const lines = input
     .split("\n")
     .map(s => s.trim())
