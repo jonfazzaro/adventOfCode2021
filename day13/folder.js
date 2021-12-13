@@ -1,3 +1,5 @@
+const { before } = require("lodash");
+
 module.exports = { parse, print, read, fold };
 
 function parse(input) {
@@ -37,7 +39,7 @@ function fold(coordinates, along) {
   return unique(
     ordered(
       coordinates
-        .filter(c => c[1] < after)
+        .filter(beforeTheFold(1, after))
         .concat(
           coordinates.map(c => {
             c[0] = c[0];
@@ -49,8 +51,8 @@ function fold(coordinates, along) {
   );
 }
 
-function beforeTheFold(coordinates, index, after) {
-  return c => c[index] < after
+function beforeTheFold(index, after) {
+  return c => c[index] < after;
 }
 
 function folded(value, after) {
