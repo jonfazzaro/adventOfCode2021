@@ -71,7 +71,7 @@ describe("The grid folding functions", () => {
         const coordinates = [
           [4, 1],
           [1,2],
-          [2, 4]
+          [3, 4]
         ];
 
         const result = fold(coordinates, "x=2");
@@ -79,7 +79,7 @@ describe("The grid folding functions", () => {
         expect(result).toEqual([
           [0,1],
           [1,2],
-          [0,4]
+          [1,4]
         ]);
       });
     });
