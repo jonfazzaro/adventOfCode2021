@@ -48,7 +48,7 @@ function fold(coordinates, along) {
 function toFolded(index, after) {
   const other = index ? 0 : 1;
   return c => {
-    c[0] = c[0];
+    c[other] = c[other];
     c[index] = folded(c[index], after);
     return c;
   };
