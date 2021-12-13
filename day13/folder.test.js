@@ -54,13 +54,14 @@ describe("The grid folding functions", () => {
       const coordinates = [
         [2, 3],
         [4, 5],
+        [1, 1],
       ];
-
-      expect(fold(coordinates, "y=3")).toEqual([
+      const result = fold(coordinates, "y=3");
+      console.log(result)
+      expect(result).toEqual([
         [4, 0],
+        [1, 1],
         [2, 2],
-        [2, 3],
-        [4, 5],
       ]);
     });
   });
