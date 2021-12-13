@@ -28,6 +28,10 @@ function read(input){
                 .flat();
 }
 
+function outNullValues(i) {
+    return !!i;
+}
+
 function readCharacter(character, x, y) {
     return character == "#" ? [x,y] : null;
 }
