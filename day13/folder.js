@@ -57,6 +57,10 @@ function beforeTheFold(index, after) {
   return c => c[index] < after;
 }
 
+function afterTheFold(index, after) {
+  return c => after < c[index];
+}
+
 function folded(value, after) {
   if (value < after) return value;
   return Math.max(0, after-((value%after) || after));
