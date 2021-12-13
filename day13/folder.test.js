@@ -1,4 +1,4 @@
-const { parse, print, read } = require("./folder");
+const { parse, print, read, fold } = require("./folder");
 
 describe("The grid folding functions", () => {
   describe("when parsing", () => {
@@ -51,5 +51,18 @@ describe("The grid folding functions", () => {
         [2, 3],
       ]));
     });
+  });
+
+  describe('when folding', () => {
+      it('returns the new coordinates', () => {
+          
+        const coordinates = [
+            [2, 3],
+            [4, 5],
+          ]; 
+
+          fold()
+      });
+      
   });
 });

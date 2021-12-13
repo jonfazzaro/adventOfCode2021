@@ -1,4 +1,4 @@
-module.exports = {parse,print, read} 
+module.exports = {parse,print, read, fold} 
 
 function parse(input) {
   const lines = input
@@ -26,6 +26,10 @@ function read(input){
             .filter(outNullValues))
                 .filter(outNullValues)
                 .flat();
+}
+
+function fold(coordinates, along) {
+
 }
 
 function outNullValues(i) {
