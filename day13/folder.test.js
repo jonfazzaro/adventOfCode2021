@@ -1,4 +1,4 @@
-const { parse, print, read, fold, folded } = require("./folder");
+const { parse, print, read, fold, folded,unique } = require("./folder");
 
 describe("The grid folding functions", () => {
   describe("when parsing", () => {
@@ -84,7 +84,7 @@ describe("The grid folding functions", () => {
     });
   });
 
-  it('passes the example', () => {
+  it.only('passes the example', () => {
     const input = `6,10
     0,14
     9,10
@@ -104,23 +104,13 @@ describe("The grid folding functions", () => {
     8,10
     9,0`;
 
-    const coordinates = parse(input);
-    console.log(coordinates.length);
     const result = fold(parse(input), "y=7");
-    console.log(
-`#.##..#..#.
-#...#......
-......#...#
-#...#......
-.#.#..#.###
-...........
-...........`);
     console.log(print(result).join("\n"));
-    expect(result.length).toEqual(17)
-    
+    expect(print(result).join("").replace(/\./g, "").length).toEqual(17)
+    expect(unique([[8,4],[8,4]]).length).toEqual(1)
   });
 
-  it.only('calculates the fold', () => {
+  it('calculates the fold', () => {
     expect(folded(10, 7)).toEqual(4)
     expect(folded(11, 7)).toEqual(3)
     expect(folded(13, 7)).toEqual(1)

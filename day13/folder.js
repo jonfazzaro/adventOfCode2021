@@ -1,4 +1,4 @@
-module.exports = { parse, print, read, fold, folded };
+module.exports = { parse, print, read, fold, folded, unique };
 
 function parse(input) {
   const lines = input
@@ -104,5 +104,5 @@ function ordered(coordinates) {
 }
 
 function unique(array) {
-  return [...new Set(array)];
+  return [...new Set(array.map(JSON.stringify))].map(JSON.parse);
 }
