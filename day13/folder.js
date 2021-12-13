@@ -38,17 +38,20 @@ function fold(coordinates, along) {
   const after = parseInt(along.split("=")[1]);
   return unique(
     ordered(
-      coordinates
-        .filter(beforeTheFold(1, after))
-        .concat(
-          coordinates.map(c => {
-            c[0] = c[0];
-            c[1] = folded(c[1], after);
-            return c;
-          })
-        )
+      coordinates.filter(beforeTheFold(1, after)).concat(
+        coordinates.map(toFolded(1, after))
+      )
     )
   );
+}
+
+function toFolded(index, after) {
+  const other = index ? 0 : 1;
+  return c => {
+    c[0] = c[0];
+    c[index] = folded(c[index], after);
+    return c;
+  };
 }
 
 function beforeTheFold(index, after) {
