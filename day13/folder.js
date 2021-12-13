@@ -1,4 +1,3 @@
-
 module.exports = {parse} 
 
 function parse(input) {
