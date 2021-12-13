@@ -1,4 +1,4 @@
-const { parse, print, read, fold, folded,unique } = require("./folder");
+const { parse, print, read, fold, folded} = require("./folder");
 
 describe("The grid folding functions", () => {
   describe("when parsing", () => {
