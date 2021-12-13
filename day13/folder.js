@@ -1,5 +1,3 @@
-const { before } = require("lodash");
-
 module.exports = { parse, print, read, fold };
 
 function parse(input) {
