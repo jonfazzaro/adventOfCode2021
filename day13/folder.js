@@ -14,7 +14,7 @@ function parse(input) {
 function print(coordinates) {
   return range(height(coordinates)).map(y =>
     range(width(coordinates))
-      .map(x => (isIn(coordinates, [x, y]) ? "#" : "."))
+      .map(x => printedLine(coordinates, x, y))
       .join("")
   );
 }
@@ -26,6 +26,10 @@ function read(input){
             .filter(i => !!i))
                 .filter(i => !!i)
                 .flat();
+}
+
+function printedLine(coordinates, x, y) {
+    return isIn(coordinates, [x, y]) ? "#" : ".";
 }
 
 function ys(coordinates) {
