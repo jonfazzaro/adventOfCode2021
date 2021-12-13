@@ -6,9 +6,7 @@ describe("The grid parser", () => {
   it("given string input, returns coordinates", () => {
     const input = `0,0
                      1,1`;
-    const result = parse(input);
-    expect(result)
-        .toEqual([[0, 0],[1, 1]]);
+    expect(parse(input)).toEqual([[0, 0],[1, 1]]);
   });
 });
 
