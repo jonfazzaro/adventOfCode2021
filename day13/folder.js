@@ -23,8 +23,8 @@ function read(input){
     return input
         .map((line, y) => line.split("")
             .map((c, x) => readCharacter(c, x, y))
-            .filter(i => !!i))
-                .filter(i => !!i)
+            .filter(outNullValues))
+                .filter(outNullValues)
                 .flat();
 }
 
