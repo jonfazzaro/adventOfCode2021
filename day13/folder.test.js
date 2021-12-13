@@ -50,21 +50,39 @@ describe("The grid folding functions", () => {
   });
 
   describe("when folding", () => {
-  describe("along y", () => {
-    it("returns the folded coordinates", () => {
-      const coordinates = [
-        [2, 3],
-        [4, 5],
-        [1, 1],
-      ];
-      const result = fold(coordinates, "y=3");
-      expect(result).toEqual([
-        [4, 0],
-        [1, 1],
-        [2, 2],
-      ]);
+    describe("along y", () => {
+      it("returns the folded coordinates", () => {
+        const coordinates = [
+          [2, 3],
+          [4, 5],
+          [1, 1],
+        ];
+        const result = fold(coordinates, "y=3");
+        expect(result).toEqual([
+          [4, 0],
+          [1, 1],
+          [2, 2],
+        ]);
+      });
     });
+
+    describe("along x", () => {
+      it("returns the folded coordinates", () => {
+        const coordinates = [
+          [4, 1],
+          [1,2],
+          [2, 4]
+        ];
+
+        console.log(print(coordinates));
+        const result = fold(coordinates, "x=2");
+        console.log((result));
+        expect(result).toEqual([
+          [0,1],
+          [1,2],
+          [1,4]
+        ]);
+      });
     });
   });
-
 });
