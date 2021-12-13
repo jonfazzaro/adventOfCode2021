@@ -41,8 +41,7 @@ function fold(coordinates, along) {
         c[0] = c[0];
         c[1] = folded(c[1], after);
         return c;
-      }) )
-      ));
+      }) )));
 }
 
 function folded(value, after) {
