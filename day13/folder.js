@@ -59,8 +59,7 @@ function beforeTheFold(index, after) {
 
 function folded(value, after) {
   if (value < after) return value;
-  const distance = value - (after+1);
-  return Math.max(0, after-distance);
+  return Math.max(0, after-( value%after));
 }
 
 function outNullValues(i) {
