@@ -970,4 +970,4 @@ const input = `17,52
 902,240
 528,628`;
 
-console.log(fold(parse(input), "y=655").length)
+console.log(fold(parse(input), "y=655").length);
