@@ -115,3 +115,5 @@ describe("The grid folding functions", () => {
     expect(folded(14, 7)).toEqual(0)
   });
 });
+
+const input = ``;
