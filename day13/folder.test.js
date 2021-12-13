@@ -32,7 +32,6 @@ describe("The grid parser", () => {
 });
 
 function print(coordinates) {
-  console.log([2, 3]);
   return range(height(coordinates)).map(y =>
     range(width(coordinates))
       .map(x => (isIn(coordinates, [x, y]) ? "#" : "."))
@@ -56,11 +55,9 @@ function height(coordinates) {
 }
 
 function isIn(coordinates, coordinate) {
-  const result = coordinates.some(
+  return coordinates.some(
     c => c[0] == coordinate[0] && c[1] == coordinate[1]
   );
-  console.log(`${coordinate} in ${coordinates}? ${result}`);
-  return result;
 }
 
 function range(size) {
