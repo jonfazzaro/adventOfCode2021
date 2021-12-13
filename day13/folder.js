@@ -38,7 +38,7 @@ function fold(coordinates, along) {
   return unique(
     ordered(
       coordinates.filter(beforeTheFold(index, after)).concat(
-        coordinates.map(toFolded(index, after))
+        coordinates.filter(afterTheFold).map(toFolded(index, after))
       )
     )
   );
