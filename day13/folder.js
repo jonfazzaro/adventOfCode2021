@@ -31,7 +31,9 @@ function read(input){
 function fold(coordinates, along) {
   // const dimension = along.split('=')[0];
   const after = parseInt(along.split('=')[1]);
-    return coordinates.map(c => [c[0], (c[1] - 1)]).concat(coordinates);
+    return ordered(coordinates.map(c => {
+      return [c[0], c[1] - (2*(c[1]-after)+1)]
+    }).concat(coordinates));
 }
 
 function outNullValues(i) {
@@ -69,4 +71,10 @@ function isIn(coordinates, coordinate) {
 
 function range(size) {
   return [...Array(size).keys()];
+}
+
+function ordered(coordinates) {
+  const clone = [...coordinates];
+  clone.sort((a,b) => a[1] - b[1]);
+  return clone;
 }
