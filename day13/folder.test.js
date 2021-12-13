@@ -53,7 +53,7 @@ describe("The grid folding functions", () => {
     describe("along y", () => {
       it("returns the folded coordinates", () => {
         const coordinates = [
-          [2, 3],
+          [2, 4],
           [4, 5],
           [1, 1],
         ];
