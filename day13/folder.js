@@ -1,4 +1,4 @@
-module.exports = {parse,print} 
+module.exports = {parse,print, read} 
 
 function parse(input) {
   const lines = input
@@ -17,6 +17,14 @@ function print(coordinates) {
       .map(x => (isIn(coordinates, [x, y]) ? "#" : "."))
       .join("")
   );
+}
+
+function read(input){
+    return input
+        .map((line, y) => line.split("")
+            .map((c, x) => c == "#" ? [x,y] : null)
+            .filter(i => !!i))
+                .filter(i => !!i).flat();
 }
 
 function ys(coordinates) {
