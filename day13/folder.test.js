@@ -105,7 +105,6 @@ describe("The grid folding functions", () => {
     9,0`;
 
     const result = fold(parse(input), "y=7");
-    console.log(print(result).join("\n"));
     expect(result.length).toEqual(17)
   });
 
