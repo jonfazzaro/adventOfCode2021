@@ -67,7 +67,7 @@ describe("The grid folding functions", () => {
     });
 
     describe("along x", () => {
-      it("returns the folded coordinates", () => {
+      it.only("returns the folded coordinates", () => {
         const coordinates = [
           [4, 1],
           [1,2],
@@ -75,16 +75,17 @@ describe("The grid folding functions", () => {
         ];
 
         const result = fold(coordinates, "x=2");
+        console.log(result);
         expect(result).toEqual([
           [0,1],
           [1,2],
-          [1,4]
+          [0,4]
         ]);
       });
     });
   });
 
-  it.only('passes the example', () => {
+  it('passes the example', () => {
     const input = `6,10
     0,14
     9,10
