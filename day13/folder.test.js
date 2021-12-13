@@ -112,6 +112,7 @@ describe("The grid folding functions", () => {
 
   it.only('calculates the fold', () => {
     expect(folded(10, 7)).toEqual(4)
+    expect(folded(11, 7)).toEqual(3)
     expect(folded(13, 7)).toEqual(1)
     
   });
