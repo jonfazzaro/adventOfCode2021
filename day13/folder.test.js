@@ -104,7 +104,17 @@ describe("The grid folding functions", () => {
     8,10
     9,0`;
 
+    const coordinates = parse(input);
+    console.log(coordinates.length);
     const result = fold(parse(input), "y=7");
+    console.log(
+`#.##..#..#.
+#...#......
+......#...#
+#...#......
+.#.#..#.###
+...........
+...........`);
     console.log(print(result).join("\n"));
     expect(result.length).toEqual(17)
     
@@ -114,5 +124,6 @@ describe("The grid folding functions", () => {
     expect(folded(10, 7)).toEqual(4)
     expect(folded(11, 7)).toEqual(3)
     expect(folded(13, 7)).toEqual(1)
+    expect(folded(14, 7)).toEqual(0)
   });
 });

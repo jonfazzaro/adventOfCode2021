@@ -59,7 +59,7 @@ function beforeTheFold(index, after) {
 
 function folded(value, after) {
   if (value < after) return value;
-  return Math.max(0, after-(value%after));
+  return Math.max(0, after-(value%after || after));
 }
 
 function outNullValues(i) {
