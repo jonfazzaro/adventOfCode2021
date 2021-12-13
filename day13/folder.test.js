@@ -35,34 +35,33 @@ describe("The grid folding functions", () => {
 
   describe("when reading", () => {
     it("returns the coordinates", () => {
-      const grid = [
-          ".....", 
-          ".#.#.", 
-          "...##", 
-          "..#..", 
-          "....."
-        ];
+      const grid = [".....", ".#.#.", "...##", "..#..", "....."];
 
-      expect(JSON.stringify(read(grid))).toEqual(JSON.stringify([
-        [1, 1],
-        [3, 1],
-        [3, 2],
-        [4, 2],
-        [2, 3],
-      ]));
+      expect(JSON.stringify(read(grid))).toEqual(
+        JSON.stringify([
+          [1, 1],
+          [3, 1],
+          [3, 2],
+          [4, 2],
+          [2, 3],
+        ])
+      );
     });
   });
 
-  describe('when folding', () => {
-      it('returns the new coordinates', () => {
-          
-        const coordinates = [
-            [2, 3],
-            [4, 5],
-          ]; 
+  describe("when folding", () => {
+    it("returns the folded coordinates", () => {
+      const coordinates = [
+        [2, 3],
+        // [4, 5],
+      ];
 
-          fold()
-      });
-      
+      expect(fold(coordinates, "y=3")).toEqual([
+        // [0, 4],
+        [2, 2],
+        [2, 3],
+        // [4, 5],
+      ]);
+    });
   });
 });

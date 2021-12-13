@@ -29,7 +29,9 @@ function read(input){
 }
 
 function fold(coordinates, along) {
-
+  // const dimension = along.split('=')[0];
+  const after = parseInt(along.split('=')[1]);
+    return coordinates.map(c => [c[0], (c[1] - 1)]).concat(coordinates);
 }
 
 function outNullValues(i) {
