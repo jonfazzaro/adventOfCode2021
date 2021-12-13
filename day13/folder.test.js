@@ -1,9 +1,11 @@
-describe('The grid folder', () => {
-    it('exists', () => {
-        fold()
-        
+describe("The grid parser", () => {
+    describe("given empty", () => {
+      it("returns empty", () => {
+        expect(parse(``)).toEqual([]);
+      });
     });
-    
 });
 
-function fold(){}
+function parse() {
+    return [];
+}
