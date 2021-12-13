@@ -24,7 +24,8 @@ function read(input){
         .map((line, y) => line.split("")
             .map((c, x) => c == "#" ? [x,y] : null)
             .filter(i => !!i))
-                .filter(i => !!i).flat();
+                .filter(i => !!i)
+                .flat();
 }
 
 function ys(coordinates) {
