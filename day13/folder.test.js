@@ -58,7 +58,6 @@ describe("The grid folding functions", () => {
           [1, 1],
         ];
         const result = fold(coordinates, "y=3");
-        console.log(result);
         expect(result).toEqual([
           [1, 1],
           [4, 1],
