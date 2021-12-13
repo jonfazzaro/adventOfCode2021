@@ -34,19 +34,27 @@ function read(input) {
 function fold(coordinates, along) {
   // const dimension = along.split('=')[0];
   const after = parseInt(along.split("=")[1]);
-  return unique(ordered(
-    coordinates.filter(c => c[1] < after)
-    .concat( coordinates
-      .map(c => {
-        c[0] = c[0];
-        c[1] = folded(c[1], after);
-        return c;
-      }) )));
+  return unique(
+    ordered(
+      coordinates
+        .filter(c => c[1] < after)
+        .concat(
+          coordinates.map(c => {
+            c[0] = c[0];
+            c[1] = folded(c[1], after);
+            return c;
+          })
+        )
+    )
+  );
+}
+
+function beforeTheFold(coordinates, index, after) {
+  return c => c[index] < after
 }
 
 function folded(value, after) {
-  if (value < after)
-    return value;
+  if (value < after) return value;
   return value - (2 * (value - after) + 1);
 }
 
