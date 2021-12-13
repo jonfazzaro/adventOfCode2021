@@ -7,8 +7,8 @@ describe("The grid parser", () => {
     const input = `0,0
                      1,1`;
     const result = parse(input);
-    expect(JSON.stringify(result))
-        .toEqual(JSON.stringify([[0, 0],[1, 1]]));
+    expect(result)
+        .toEqual([[0, 0],[1, 1]]);
   });
 });
 
