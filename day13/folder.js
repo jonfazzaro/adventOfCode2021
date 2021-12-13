@@ -1,4 +1,4 @@
-module.exports = { parse, print, read, fold };
+module.exports = { parse, print, read, fold, folded };
 
 function parse(input) {
   const lines = input

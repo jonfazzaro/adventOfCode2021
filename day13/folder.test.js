@@ -1,4 +1,4 @@
-const { parse, print, read, fold } = require("./folder");
+const { parse, print, read, fold, folded } = require("./folder");
 
 describe("The grid folding functions", () => {
   describe("when parsing", () => {
@@ -82,5 +82,37 @@ describe("The grid folding functions", () => {
         ]);
       });
     });
+  });
+
+  it('passes the example', () => {
+    const input = `6,10
+    0,14
+    9,10
+    0,3
+    10,4
+    4,11
+    6,0
+    6,12
+    4,1
+    0,13
+    10,12
+    3,4
+    3,0
+    8,4
+    1,10
+    2,14
+    8,10
+    9,0`;
+
+    const result = fold(parse(input), "y=7");
+    console.log(print(result).join("\n"));
+    expect(result.length).toEqual(17)
+    
+  });
+
+  it.only('calculates the fold', () => {
+    // expect(folded(13, 7)).toEqual(2)
+    expect(folded(10, 7)).toEqual(3)
+    
   });
 });
