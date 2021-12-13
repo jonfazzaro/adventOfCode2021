@@ -22,10 +22,14 @@ function print(coordinates) {
 function read(input){
     return input
         .map((line, y) => line.split("")
-            .map((c, x) => c == "#" ? [x,y] : null)
+            .map((c, x) => readCharacter(c, x, y))
             .filter(i => !!i))
                 .filter(i => !!i)
                 .flat();
+}
+
+function readCharacter(character, x, y) {
+    return character == "#" ? [x,y] : null;
 }
 
 function printedLine(coordinates, x, y) {
