@@ -1,9 +1,7 @@
-describe('The polymer inserter', () => {
-    it('exists', () => {
-        insert()
-        
-    });
-    
+describe("The polymer inserter", () => {
+  it("exists", () => {
+    insert();
+  });
 });
 
-function insert(){}
+function insert() {}
