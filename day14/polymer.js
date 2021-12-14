@@ -56,7 +56,7 @@ function toPairs(element, index, list) {
   if (index >= list.length - 1) return null;
   return list
     .slice(index, index + 2)
-    .join(""); //element + list[index + 1];
+    .join(""); 
 }
 
 function outFalsies(e) {
