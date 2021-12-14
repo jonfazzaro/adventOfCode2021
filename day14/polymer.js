@@ -63,12 +63,6 @@ function outFalsies(e) {
   return !!e;
 }
 
-function splice(array, index, item) {
-  const cloned = [...array];
-  cloned.splice(index, 0, item);
-  return cloned;
-}
-
 function breakdown(input) {
   return input.split("").reduce((counts, c) => {
     if (c in counts) counts[c]++;
