@@ -26,7 +26,7 @@ describe("The polymer inserter", () => {
     expect(formula("NCNBCHB", key)).toEqual("NBCCNBBBCBHCB");
   });
 
-  xit('applies formula insertion multiple times', () => {
+  it('applies formula insertion multiple times', () => {
       expect(formula("NNCB", key, 2)).toEqual("NBCCNBBBCBHCB")
   });
 
