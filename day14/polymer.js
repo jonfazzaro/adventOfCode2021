@@ -23,9 +23,12 @@ function formula(polymer, key, depth = 1) {
 }
 
 function iterate(polymer, lookup) {
-  return polymer
-    .split("")
-    .map(toPairs)
+  const chars = polymer.split("");
+  const pairs = [];
+  for (let i = 0; i < chars.length-1; i++) {
+    pairs.push(chars[i] + chars[i + 1]);
+  }
+  return pairs
     .filter(outFalsies)
     .map(inserted(lookup))
     .join("");
@@ -33,11 +36,6 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index) => {
-    // let result = lookup[pair] + pair[1];
-    // if (index === 0) result = splice(pair.split(""), 1, lookup[pair]).join("");
-
-
-    // return result;
     return (index === 0 ? pair[0] : "")
          + lookup[pair]
          + pair[1];
@@ -56,8 +54,7 @@ function toLookup(key) {
 
 function toPairs(element, index, list) {
   if (!isLast(index, list)) {
-    const pair = element + list[index + 1];
-    return pair;
+    return element + list[index + 1];
   }
 }
 
