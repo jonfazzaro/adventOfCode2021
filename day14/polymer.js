@@ -33,10 +33,14 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index) => {
-    let result = lookup[pair] + pair[1];
-    if (index === 0) result = splice(pair.split(""), 1, lookup[pair]).join("");
+    // let result = lookup[pair] + pair[1];
+    // if (index === 0) result = splice(pair.split(""), 1, lookup[pair]).join("");
 
-    return result;
+
+    // return result;
+    return (index === 0 ? pair[0] : "")
+         + lookup[pair]
+         + pair[1];
   };
 }
 
