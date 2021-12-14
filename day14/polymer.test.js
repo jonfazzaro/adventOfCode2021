@@ -21,14 +21,6 @@ describe("The polymer inserter", () => {
     expect(formula("NNCB", key)).toEqual("NCNBCHB");
   });
 
-  it('finds the most common element', () => {
-    expect(mode("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual("B");
-  });
-
-  it('finds the least common element', () => {
-    expect(antimode("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual("H");
-  });
-
   it('computes the differential of a polymer', () => {
       expect(differential("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual(11-4);
   });
