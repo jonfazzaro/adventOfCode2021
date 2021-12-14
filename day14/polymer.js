@@ -26,7 +26,7 @@ function iterate(polymer, lookup) {
   const chars = polymer.split("");
   const pairs = [];
   for (let i = 0; i < chars.length-1; i++) {
-    // pairs.push(chars[i] + chars[i + 1]);
+    pairs.push(chars[i]);
   }
   return pairs
     // .filter(outFalsies)
