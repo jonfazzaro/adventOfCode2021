@@ -33,12 +33,12 @@ function iterate(polymer, lookup) {
     .map(toPairs)
     .filter(outFalsies)
     .map(inserted(lookup))
-    .join("");
+    .join("").replace(/,/g,"");
 }
 
 function inserted(lookup) {
   return (pair) => {
-    return lookup[pair] + pair[1];
+    return [lookup[pair.join("")], pair[1]];
   };
 }
 
@@ -56,7 +56,7 @@ function toPairs(element, index, list) {
   if (index >= list.length - 1) return null;
   return list
     .slice(index, index + 2)
-    .join(""); 
+    // .join(""); 
 }
 
 function outFalsies(e) {
