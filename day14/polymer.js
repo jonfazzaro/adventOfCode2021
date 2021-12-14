@@ -1,22 +1,10 @@
-module.exports = {formula, mode, antimode, differential}
+module.exports = {formula, differential}
 
 function differential(input) {
     const grouped = breakdown(input);
     const values = Object.values(grouped);
 
     return Math.max(...values)-Math.min(...values);
-}
-
-function antimode(input) {
-    const grouped = breakdown(input);
-    return Object.keys(grouped)
-        .reduce((a, b) => grouped[a] < grouped[b] ? a : b);
-}
-
-function mode(input) {
-    const grouped = breakdown(input);
-    return Object.keys(grouped)
-        .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
 }
 
 function formula(polymer, key) {
