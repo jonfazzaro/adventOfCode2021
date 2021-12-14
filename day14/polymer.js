@@ -28,7 +28,8 @@ function iterate(polymer, lookup) {
   // for (let i = 0; i < chars.length-1; i++) {
   //   pairs.push(chars.slice(i, i+2).join(""));
   // }
-  return polymer.split("")
+  return polymer
+    .split("")
     .map(toPairs)
     .filter(outFalsies)
     .map(inserted(lookup))
@@ -37,9 +38,7 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index) => {
-    return (index === 0 ? pair[0] : "")
-         + lookup[pair]
-         + pair[1];
+    return (index === 0 ? pair[0] : "") + lookup[pair] + pair[1];
   };
 }
 
@@ -54,9 +53,10 @@ function toLookup(key) {
 }
 
 function toPairs(element, index, list) {
-  if (!isLast(index, list)) {
-    return element + list[index + 1];
-  }
+  if (index >= list.length - 1) return null;
+  return list
+    .slice(index, index <= list.length - 1 ? index + 2 : null)
+    .join(""); //element + list[index + 1];
 }
 
 function outFalsies(e) {
