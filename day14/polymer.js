@@ -30,7 +30,6 @@ function inserted(lookup) {
     if (index === 0)
       result = splice(pair.split(""), 1, lookup[pair]).join("");
 
-      console.log(pair, result)
     return result;
   };
 }
