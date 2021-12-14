@@ -10,9 +10,9 @@ module.exports = function formula(polymer, key) {
 
   function inserted(pair, index, list) {
       if (index === 0 || index === list.length - 1)
-    return splice(pair.split(""), 1, lookup[pair]).join("");
+        return splice(pair.split(""), 1, lookup[pair]).join("");
 
-    return lookup[pair];
+        return lookup[pair];
   }
 };
 
