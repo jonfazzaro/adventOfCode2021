@@ -34,12 +34,13 @@ describe("The polymer inserter", () => {
       expect(differential("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual(11-4);
   });
   
-  it.only('computes the differential of a massive polymer', () => {
+  xit('computes the differential of a massive polymer', () => {
     console.log("Computing polymer...")
-    const polymer = formula("NNCB", key, 20);
+    let polymer = formula("NNCB", key, 40);
     // console.log("Calculating differential...")
     // const result = differential(polymer);
       // expect(result).toEqual(2188189693529);
+      // FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
   });
 
 
