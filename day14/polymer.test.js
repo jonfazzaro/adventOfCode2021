@@ -35,7 +35,7 @@ describe("The polymer inserter", () => {
   });
   
   it.only('computes the differential of a massive polymer', () => {
-    let polymer = formula("NNCB", key, 30);
+    let polymer = formula("NNCB", key, 40);
     // console.log("Calculating differential...")
     // const result = differential(polymer);
       // expect(result).toEqual(2188189693529);
