@@ -1,7 +1,9 @@
 describe("The polymer inserter", () => {
-  it("exists", () => {
-    insert();
+  it("given a pair, returns a pair", () => {
+    expect(insert("NH")).toEqual("NH");
   });
 });
 
-function insert() {}
+function insert() {
+    return "NH"
+}
