@@ -33,7 +33,8 @@ function iterate(polymer, lookup) {
     .map(toPairs)
     .filter(outFalsies)
     .map(inserted(lookup))
-    .join("").replace(/,/g,"");
+    .join("")
+    .replace(/,/g,"");
 }
 
 function inserted(lookup) {
