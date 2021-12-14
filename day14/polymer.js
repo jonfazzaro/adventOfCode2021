@@ -37,7 +37,7 @@ function iterate(polymer, lookup) {
 }
 
 function inserted(lookup) {
-  return (pair, index) => {
+  return (pair) => {
     return lookup[pair] + pair[1];
   };
 }
