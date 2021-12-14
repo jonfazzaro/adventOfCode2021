@@ -1,29 +1,35 @@
-module.exports = {formula, differential}
+module.exports = { formula, differential };
 
 function differential(input) {
-    const grouped = breakdown(input);
-    const values = Object.values(grouped);
+  const grouped = breakdown(input);
+  const values = Object.values(grouped);
 
-    return Math.max(...values)-Math.min(...values);
+  return Math.max(...values) - Math.min(...values);
 }
 
-function formula(polymer, key) {
+function formula(polymer, key, depth = 1) {
   const lookup = toLookup(key);
 
-  return polymer
+  return range(depth).reduce((f) => iterate(f, lookup), polymer);
+}
+
+function iterate(polymer, lookup) {
+    return polymer
     .split("")
     .map(toPairs)
     .filter(outFalsies)
-    .map(inserted)
+    .map(inserted(lookup))
     .join("");
+}
 
-  function inserted(pair, index, list) {
-    if (index === 0 || isLast(index, list)) 
+function inserted(lookup) {
+  return (pair, index, list) => {
+    if (index === 0 || isLast(index, list))
       return splice(pair.split(""), 1, lookup[pair]).join("");
 
     return lookup[pair];
-  }
-};
+  };
+}
 
 function toLookup(key) {
   return key
@@ -53,15 +59,17 @@ function splice(array, index, item) {
 }
 
 function breakdown(input) {
-return input.split("").reduce((counts, c) =>{
-    if (c in counts)
-        counts[c]++;
-    else
-        counts[c] = 1;
+  return input.split("").reduce((counts, c) => {
+    if (c in counts) counts[c]++;
+    else counts[c] = 1;
     return counts;
-}, {});
+  }, {});
 }
 
 function isLast(index, array) {
-    return index === array.length - 1;
+  return index === array.length - 1;
 }
+
+function range(size) {
+    return [...Array(size).keys()];
+  }

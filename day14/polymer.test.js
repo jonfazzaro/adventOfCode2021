@@ -1,7 +1,6 @@
 const {formula,differential} = require('./polymer');
 
 describe("The polymer inserter", () => {
-  it('given two pairs and a key, inserts according to the key', () => {
       const key = `CH -> B
       HH -> N
       CB -> H
@@ -18,7 +17,13 @@ describe("The polymer inserter", () => {
       BC -> B
       CC -> N
       CN -> C`;
+
+  it.only('given two pairs and a key, inserts according to the key', () => {
     expect(formula("NNCB", key)).toEqual("NCNBCHB");
+  });
+
+  it('applies formula insertion multiple times', () => {
+      expect(formula("NNCB", key, 6)).toEqual("NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB")
   });
 
   it('computes the differential of a polymer', () => {
