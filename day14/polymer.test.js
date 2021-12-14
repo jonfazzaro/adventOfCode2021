@@ -1,4 +1,4 @@
-const {formula,mode,antimode, differential} = require('./polymer');
+const {formula,differential} = require('./polymer');
 
 describe("The polymer inserter", () => {
   it('given two pairs and a key, inserts according to the key', () => {
