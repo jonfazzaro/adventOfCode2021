@@ -1,9 +1,23 @@
+const formula = require('./polymer');
+
 describe("The polymer inserter", () => {
-  it("given a pair, returns a pair", () => {
-    expect(insert("NH")).toEqual("NH");
+  it('given two pairs and a key, inserts according to the key', () => {
+      const key = `CH -> B
+      HH -> N
+      CB -> H
+      NH -> C
+      HB -> C
+      HC -> B
+      HN -> C
+      NN -> C
+      BH -> H
+      NC -> B
+      NB -> B
+      BN -> B
+      BB -> N
+      BC -> B
+      CC -> N
+      CN -> C`;
+    expect(formula("NNCB", key)).toEqual("NCNBCHB");
   });
 });
-
-function insert() {
-    return "NH"
-}
