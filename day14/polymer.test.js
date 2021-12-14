@@ -22,7 +22,7 @@ describe("The polymer inserter", () => {
     expect(formula("NNCB", key)).toEqual("NCNBCHB");
   });
 
-  it.only('given two pairs and a key, inserts according to the key', () => {
+  it('given two pairs and a key, inserts according to the key', () => {
     expect(formula("NCNBCHB", key)).toEqual("NBCCNBBBCBHCB");
   });
 
