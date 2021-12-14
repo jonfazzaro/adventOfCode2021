@@ -1,4 +1,4 @@
-const {formula,mode} = require('./polymer');
+const {formula,mode,antimode} = require('./polymer');
 
 describe("The polymer inserter", () => {
   it('given two pairs and a key, inserts according to the key', () => {
@@ -23,5 +23,9 @@ describe("The polymer inserter", () => {
 
   it('finds the most common element', () => {
     expect(mode("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual("B");
+  });
+
+  it('finds the least common element', () => {
+    expect(antimode("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual("H");
   });
 });
