@@ -2,11 +2,8 @@ module.exports = {formula, mode}
 
 function mode(input) {
     const grouped = breakdown(input);
-
-    const mode = Object.keys(grouped)
+    return Object.keys(grouped)
         .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
-
-    return mode;
 }
 
 function formula(polymer, key) {
