@@ -10,7 +10,6 @@ function differential(input) {
 function formula(polymer, key, depth = 1) {
   const lookup = toLookup(key);
 
-  console.log("Depth: " + depth);
   // return range(depth).reduce((f, i) => {
   //   console.log("Iteration: " + i);
   //   return iterate(f, lookup);
