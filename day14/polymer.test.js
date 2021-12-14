@@ -33,6 +33,16 @@ describe("The polymer inserter", () => {
   it('computes the differential of a polymer', () => {
       expect(differential("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual(11-4);
   });
+  
+  it.only('computes the differential of a massive polymer', () => {
+    console.log("Computing polymer...")
+    // const polymer = formula("NNCB", key, 40);
+    // console.log("Calculating differential...")
+    // const result = differential(polymer);
+      // expect(result).toEqual(2188189693529);
+  });
+
+
 });
 
 const key = `HK -> C
@@ -136,5 +146,5 @@ OP -> N
 KH -> P
 VN -> H`;
 
-console.log(differential(formula("SHPPPVOFPBFCHHBKBNCV", key, 10)));
+// console.log(differential(formula("SHPPPVOFPBFCHHBKBNCV", key, 10)));
 
