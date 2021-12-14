@@ -1,6 +1,19 @@
 module.exports = {formula, mode}
 
-function mode(){}
+function mode(input) {
+    const grouped = input.split("").reduce((counts, c) =>{
+        if (c in counts)
+            counts[c]++;
+        else
+            counts[c] = 1;
+        return counts;
+    }, {});
+
+    const mode = Object.keys(grouped)
+        .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
+
+    return mode;
+}
 
 function formula(polymer, key) {
   const lookup = toLookup(key);

@@ -22,8 +22,6 @@ describe("The polymer inserter", () => {
   });
 
   it('finds the most common element', () => {
-
-    expect(mode("NBBBCNCCNBBNBNBBCHBHHBCHB"))
-      
+    expect(mode("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual("B");
   });
 });
