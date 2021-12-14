@@ -42,3 +42,7 @@ function splice(array, index, item) {
   cloned.splice(index, 0, item);
   return cloned;
 }
+
+function isLast(index, array) {
+    return index === array.length - 1;
+}
