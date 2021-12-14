@@ -1,4 +1,8 @@
-module.exports = function formula(polymer, key) {
+module.exports = {formula, mode}
+
+function mode(){}
+
+function formula(polymer, key) {
   const lookup = toLookup(key);
 
   return polymer
