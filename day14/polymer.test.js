@@ -18,7 +18,7 @@ describe("The polymer inserter", () => {
       CC -> N
       CN -> C`;
 
-  it('given two pairs and a key, inserts according to the key', () => {
+  it.only('given two pairs and a key, inserts according to the key', () => {
     expect(formula("NNCB", key)).toEqual("NCNBCHB");
   });
 
@@ -34,7 +34,7 @@ describe("The polymer inserter", () => {
       expect(differential("NBBBCNCCNBBNBNBBCHBHHBCHB")).toEqual(11-4);
   });
   
-  it.only('computes the differential of a massive polymer', () => {
+ xit('computes the differential of a massive polymer', () => {
     let polymer = formula("NNCB", key, 40);
     // console.log("Calculating differential...")
     // const result = differential(polymer);
