@@ -23,12 +23,13 @@ function formula(polymer, key, depth = 1) {
 }
 
 function iterate(polymer, lookup) {
-  const chars = polymer.split("");
-  const pairs = [];
-  for (let i = 0; i < chars.length-1; i++) {
-    pairs.push(chars.slice(i, i+2).join(""));
-  }
-  return pairs
+  // const chars = polymer.split("");
+  // const pairs = [];
+  // for (let i = 0; i < chars.length-1; i++) {
+  //   pairs.push(chars.slice(i, i+2).join(""));
+  // }
+  return polymer.split("")
+    .map(toPairs)
     .filter(outFalsies)
     .map(inserted(lookup))
     .join("");
