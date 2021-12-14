@@ -18,12 +18,16 @@ describe("The polymer inserter", () => {
       CC -> N
       CN -> C`;
 
-  it.only('given two pairs and a key, inserts according to the key', () => {
+  it('given two pairs and a key, inserts according to the key', () => {
     expect(formula("NNCB", key)).toEqual("NCNBCHB");
   });
 
-  it('applies formula insertion multiple times', () => {
-      expect(formula("NNCB", key, 6)).toEqual("NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB")
+  it.only('given two pairs and a key, inserts according to the key', () => {
+    expect(formula("NCNBCHB", key)).toEqual("NBCCNBBBCBHCB");
+  });
+
+  xit('applies formula insertion multiple times', () => {
+      expect(formula("NNCB", key, 2)).toEqual("NBCCNBBBCBHCB")
   });
 
   it('computes the differential of a polymer', () => {

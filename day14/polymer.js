@@ -1,3 +1,5 @@
+const { result } = require("lodash");
+
 module.exports = { formula, differential };
 
 function differential(input) {
@@ -10,7 +12,7 @@ function differential(input) {
 function formula(polymer, key, depth = 1) {
   const lookup = toLookup(key);
 
-  return range(depth).reduce((f) => iterate(f, lookup), polymer);
+  return range(depth).reduce((f, i) => iterate(f, lookup), polymer);
 }
 
 function iterate(polymer, lookup) {
@@ -24,10 +26,12 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index, list) => {
-    if (index === 0 || isLast(index, list))
-      return splice(pair.split(""), 1, lookup[pair]).join("");
+      let result = lookup[pair] + pair[1];
+    if (index === 0)
+      result = splice(pair.split(""), 1, lookup[pair]).join("");
 
-    return lookup[pair];
+      console.log(pair, result)
+    return result;
   };
 }
 
