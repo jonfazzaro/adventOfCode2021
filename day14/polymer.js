@@ -2,6 +2,7 @@ module.exports = {formula, mode}
 
 function mode(input) {
     const grouped = breakdown(input);
+    console.log(grouped)
     return Object.keys(grouped)
         .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
 }
