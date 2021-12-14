@@ -9,7 +9,7 @@ module.exports = function formula(polymer, key) {
     .join("");
 
   function inserted(pair, index, list) {
-    if (index === 0 || index === list.length - 1)
+    if (index === 0 || isLast(index, list)) 
       return splice(pair.split(""), 1, lookup[pair]).join("");
 
     return lookup[pair];
