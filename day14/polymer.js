@@ -10,15 +10,22 @@ function differential(input) {
 function formula(polymer, key, depth = 1) {
   const lookup = toLookup(key);
 
-  console.log("Depth: " + depth)
-  return range(depth).reduce((f, i) => {
+  console.log("Depth: " + depth);
+  // return range(depth).reduce((f, i) => {
+  //   console.log("Iteration: " + i);
+  //   return iterate(f, lookup);
+  // }, polymer);
+
+  let result = polymer;
+  for (let i = 0; i < depth; i++) {
     console.log("Iteration: " + i);
-    return iterate(f, lookup);
-  }, polymer);
+    result = iterate(result, lookup);
+  }
+  return result;
 }
 
 function iterate(polymer, lookup) {
-    return polymer
+  return polymer
     .split("")
     .map(toPairs)
     .filter(outFalsies)
@@ -28,9 +35,8 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index) => {
-      let result = lookup[pair] + pair[1];
-    if (index === 0)
-      result = splice(pair.split(""), 1, lookup[pair]).join("");
+    let result = lookup[pair] + pair[1];
+    if (index === 0) result = splice(pair.split(""), 1, lookup[pair]).join("");
 
     return result;
   };
@@ -76,5 +82,5 @@ function isLast(index, array) {
 }
 
 function range(size) {
-    return [...Array(size).keys()];
-  }
+  return [...Array(size).keys()];
+}
