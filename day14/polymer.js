@@ -25,7 +25,7 @@ function iterate(polymer, lookup) {
 }
 
 function inserted(lookup) {
-  return (pair, index, list) => {
+  return (pair, index) => {
       let result = lookup[pair] + pair[1];
     if (index === 0)
       result = splice(pair.split(""), 1, lookup[pair]).join("");
