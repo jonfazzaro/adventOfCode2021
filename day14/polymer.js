@@ -18,7 +18,6 @@ function formula(polymer, key, depth = 1) {
 
   let result = polymer;
   for (let i = 0; i < depth; i++) {
-    console.log("Iteration: " + i);
     result = iterate(result, lookup);
   }
   return result;
