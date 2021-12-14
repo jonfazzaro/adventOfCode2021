@@ -28,7 +28,7 @@ function iterate(polymer, lookup) {
   // for (let i = 0; i < chars.length-1; i++) {
   //   pairs.push(chars.slice(i, i+2).join(""));
   // }
-  return polymer
+  return polymer[0] + polymer
     .split("")
     .map(toPairs)
     .filter(outFalsies)
@@ -38,7 +38,7 @@ function iterate(polymer, lookup) {
 
 function inserted(lookup) {
   return (pair, index) => {
-    return (index === 0 ? pair[0] : "") + lookup[pair] + pair[1];
+    return lookup[pair] + pair[1];
   };
 }
 
