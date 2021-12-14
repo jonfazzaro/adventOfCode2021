@@ -27,7 +27,7 @@ function toLookup(key) {
 }
 
 function toPairs(element, index, list) {
-  if (index < list.length - 1) {
+  if (!isLast(index, list)) {
     const pair = element + list[index + 1];
     return pair;
   }
