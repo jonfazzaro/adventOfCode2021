@@ -12,7 +12,7 @@ module.exports = function formula(polymer, key) {
       if (index === 0 || index === list.length - 1)
         return splice(pair.split(""), 1, lookup[pair]).join("");
 
-        return lookup[pair];
+    return lookup[pair];
   }
 };
 
