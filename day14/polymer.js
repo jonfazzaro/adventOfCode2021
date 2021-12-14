@@ -1,8 +1,12 @@
 module.exports = function formula(polymer, key) {
   const lookup = toLookup(key);
 
-  return polymer.split("").map(toPairs).filter(outFalsies).map(inserted)
-  .join("");
+  return polymer
+    .split("")
+    .map(toPairs)
+    .filter(outFalsies)
+    .map(inserted)
+    .join("");
 
   function inserted(pair, index, list) {
       if (index === 0 || index === list.length - 1)
