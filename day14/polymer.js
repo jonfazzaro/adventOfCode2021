@@ -1,4 +1,11 @@
-module.exports = {formula, mode, antimode}
+module.exports = {formula, mode, antimode, differential}
+
+function differential(input) {
+    const grouped = breakdown(input);
+    const values = Object.values(grouped);
+
+    return Math.max(...values)-Math.min(...values);
+}
 
 function antimode(input) {
     const grouped = breakdown(input);
@@ -8,7 +15,6 @@ function antimode(input) {
 
 function mode(input) {
     const grouped = breakdown(input);
-    console.log(grouped)
     return Object.keys(grouped)
         .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
 }
