@@ -27,7 +27,7 @@ describe("The polymer inserter", () => {
   });
 
   it('applies formula insertion multiple times', () => {
-      expect(formula("NNCB", key, 2)).toEqual("NBCCNBBBCBHCB")
+      expect(formula("NNCB", key, 4)).toEqual("NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB")
   });
 
   it('computes the differential of a polymer', () => {
