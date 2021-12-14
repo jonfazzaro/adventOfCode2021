@@ -1,5 +1,3 @@
-const { result } = require("lodash");
-
 module.exports = { formula, differential };
 
 function differential(input) {
