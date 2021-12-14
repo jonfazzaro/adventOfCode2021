@@ -1,13 +1,7 @@
 module.exports = {formula, mode}
 
 function mode(input) {
-    const grouped = input.split("").reduce((counts, c) =>{
-        if (c in counts)
-            counts[c]++;
-        else
-            counts[c] = 1;
-        return counts;
-    }, {});
+    const grouped = breakdown(input);
 
     const mode = Object.keys(grouped)
         .reduce((a, b) => grouped[a] > grouped[b] ? a : b);
@@ -58,6 +52,16 @@ function splice(array, index, item) {
   const cloned = [...array];
   cloned.splice(index, 0, item);
   return cloned;
+}
+
+function breakdown(input) {
+return input.split("").reduce((counts, c) =>{
+    if (c in counts)
+        counts[c]++;
+    else
+        counts[c] = 1;
+    return counts;
+}, {});
 }
 
 function isLast(index, array) {
