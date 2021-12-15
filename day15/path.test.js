@@ -1,4 +1,5 @@
 const path = require('./path');
+
 describe('The pathfinder', () => {
 
     it('given a 2x2 grid, return the path', () => {
