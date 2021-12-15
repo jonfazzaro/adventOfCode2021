@@ -23,7 +23,5 @@ function path(input) {
 
     const middle = flat.slice(1,length-1);
 
-    console.log(flat, middle, end)
-
     return [Math.min(...middle), end]
 }
