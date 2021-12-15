@@ -11,8 +11,11 @@ module.exports = function path(input) {
 
 function parseGrid(input) {
     return input.split('\n')
-        .map(s=> s.trim().split('')
-            .map(i => parseInt(i)));
+        .map(toRow);
+}
+
+function toRow(line) {
+return line.trim().split('').map(toInt)
 }
 
 function toInt(i) {
