@@ -1,3 +1,4 @@
+const path = require('./path');
 describe('The pathfinder', () => {
 
     it('given a 2x2 grid, return the path', () => {
@@ -13,14 +14,3 @@ describe('The pathfinder', () => {
     });
 
 });
-
-function path(input) {
-    const grid = input.split('\n').map(s=> s.trim().split('').map(i => parseInt(i)));
-
-    const flat = grid.flat();
-    const last = flat.length-1;
-    const end = flat[last];
-    const middle = flat.slice(1,last);
-
-    return [Math.min(...middle), end]
-}
