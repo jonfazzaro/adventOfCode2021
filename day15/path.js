@@ -1,5 +1,5 @@
 module.exports = function path(input) {
-    const grid = input.split('\n').map(s=> s.trim().split('').map(i => parseInt(i)));
+    const grid = parseGrid(input);
 
     const flat = grid.flat();
     const last = flat.length-1;
@@ -7,4 +7,8 @@ module.exports = function path(input) {
     const middle = flat.slice(1,last);
 
     return [Math.min(...middle), end]
+}
+
+function parseGrid(input) {
+    return input.split('\n').map(s=> s.trim().split('').map(i => parseInt(i)));
 }
