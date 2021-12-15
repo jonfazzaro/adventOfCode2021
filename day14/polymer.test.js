@@ -136,5 +136,5 @@ OP -> N
 KH -> P
 VN -> H`;
 
-console.log(differential(formula("SHPPPVOFPBFCHHBKBNCV", key, 10)));
+// console.log(differential(formula("SHPPPVOFPBFCHHBKBNCV", key, 10)));
 
