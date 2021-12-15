@@ -18,10 +18,10 @@ function path(input) {
     const grid = input.split('\n').map(s=> s.trim().split('').map(i => parseInt(i)));
 
     const flat = grid.flat();
-    const length = flat.length;
-    const end = flat[length-1];
+    const last = flat.length-1;
+    const end = flat[last];
 
-    const middle = flat.slice(1,length-1);
+    const middle = flat.slice(1,last);
 
     return [Math.min(...middle), end]
 }
