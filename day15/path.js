@@ -1,4 +1,3 @@
-
 module.exports = function path(input) {
     const grid = input.split('\n').map(s=> s.trim().split('').map(i => parseInt(i)));
 
