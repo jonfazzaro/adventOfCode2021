@@ -10,8 +10,7 @@ module.exports = function path(input) {
 }
 
 function parseGrid(input) {
-    return input.split('\n')
-        .map(toRow);
+    return input.split('\n').map(toRow);
 }
 
 function toRow(line) {
