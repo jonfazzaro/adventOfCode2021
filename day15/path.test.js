@@ -8,7 +8,7 @@ describe("The pathfinder", () => {
       expect(path(grid)).toEqual([3, 5]);
     });
 
-    it.only("return a vertical path", () => {
+    it("return a vertical path", () => {
       const grid = `28
                       47`;
       expect(path(grid)).toEqual([4, 7]);
