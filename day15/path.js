@@ -11,9 +11,9 @@ module.exports = function path(input) {
     const right = moveRight(position, lastColumn);
     const down = moveDown(position, lastRow); 
     
-    if (right && isLast(right) || value(grid, right) < value(grid, down))
+    if (right && (isLast(right) || value(grid, right) < value(grid, down)))
       position = right;
-    else if (down && isLast(down) || value(grid, down) < value(grid, right)) 
+    else if (down && (isLast(down) || value(grid, down) < value(grid, right)) )
        position = down;
        else break;
 
@@ -23,9 +23,11 @@ module.exports = function path(input) {
   return values;
 
   function isLast(position) {
-    return position 
+    const result = !!position 
         && position.x === lastColumn 
         && position.y === lastRow;
+        console.log(position, result);
+    return result;
   }
 };
 
