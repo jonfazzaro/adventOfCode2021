@@ -11,7 +11,7 @@ module.exports = function path(input) {
     const down = moveDown(position, lastRow);
     position = nextMove(right, down);
 
-    if (!!position) values.push(value(grid, position));
+    if (!!position) values.push(value(position));
   }
 
   return values;
@@ -23,11 +23,16 @@ module.exports = function path(input) {
   function nextMove(a, b) {
     let result = null;
 
-    if (a && (isLast(a) || value(grid, a) < value(grid, b))) result = a;
+    if (a && (isLast(a) || value(a) < value(b))) result = a;
 
-    if (b && (isLast(b) || value(grid, b) < value(grid, a))) result = b;
+    if (b && (isLast(b) || value(b) < value(a))) result = b;
 
     return result;
+  }
+
+  function value(position) {
+    if (!position) return -1;
+    return grid[position.x][position.y];
   }
 };
 
@@ -40,11 +45,6 @@ function toRow(line) {
     .trim()
     .split("")
     .map(i => parseInt(i));
-}
-
-function value(grid, position) {
-  if (!position) return -1;
-  return grid[position.x][position.y];
 }
 
 function moveRight(position, limit) {
