@@ -13,7 +13,7 @@ module.exports = function path(input) {
     
     if (right && isLast(right) || value(grid, right) < value(grid, down))
       position = right;
-    else 
+    else if (down && isLast(down) || value(grid, down) < value(grid, right)) 
        position = down;
 
     values.push(value(grid, position));
