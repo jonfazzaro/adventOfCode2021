@@ -16,11 +16,9 @@ module.exports = function path(input) {
     else 
        position = down;
 
-       console.log(position);
     values.push(value(grid, position));
   }
 
-  console.log(values)
   return values;
 
   function isLast(position) {
