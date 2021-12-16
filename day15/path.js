@@ -23,11 +23,9 @@ module.exports = function path(input) {
   return values;
 
   function isLast(position) {
-    const result = !!position 
+    return !!position 
         && position.x === lastColumn 
         && position.y === lastRow;
-        console.log(position, result);
-    return result;
   }
 };
 
