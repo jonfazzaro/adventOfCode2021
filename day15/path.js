@@ -10,12 +10,9 @@ module.exports = function path(input) {
     
     const right = moveRight(position, lastColumn);
     const down = moveDown(position, lastRow); 
+    position = nextMove(right, down);
     
-    if (right && (isLast(right) || value(grid, right) < value(grid, down)))
-      position = right;
-    else if (down && (isLast(down) || value(grid, down) < value(grid, right)) )
-       position = down;
-       else break;
+       if (!!position)
 
     values.push(value(grid, position));
   }
@@ -26,6 +23,18 @@ module.exports = function path(input) {
     return !!position 
         && position.x === lastColumn 
         && position.y === lastRow;
+  }
+  
+  function nextMove(a, b) {
+    let result = null;
+
+    if (a && (isLast(a) || value(grid, a) < value(grid, b)))
+      result = a;
+    
+    if (b && (isLast(b) || value(grid, b) < value(grid, a)) )
+      result = b;
+      
+    return result;
   }
 };
 
