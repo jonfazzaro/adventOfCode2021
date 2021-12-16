@@ -15,6 +15,7 @@ module.exports = function path(input) {
       position = right;
     else if (down && isLast(down) || value(grid, down) < value(grid, right)) 
        position = down;
+       else break;
 
     values.push(value(grid, position));
   }
